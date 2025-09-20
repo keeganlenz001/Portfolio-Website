@@ -1,0 +1,49 @@
+.landing_page {
+    // background-color: red;
+    max-width: 1280px;
+    height: 100vh;
+
+    .profile_picture_wrapper {
+        // background-color: blue;
+        padding-top: 10vh;
+        padding-bottom: 5vh;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            border-radius: 50%;
+            height: 12.5vw;
+            width: 12.5vw;
+
+            object-fit: cover;
+
+            outline-color: black;
+            outline-style: solid;
+            outline-width: 5px;
+        }
+    }
+
+    .introduction {
+        // background-color: red;
+
+        header {
+            padding-bottom: 24px;
+            h1 {
+                font-size: 48px;
+                width: 100%;
+            }
+
+            h2 {
+                color: #0d2b45;
+                font-size: 32px;
+            }
+        }
+
+        p {
+            font-size: 24px;
+        }
+    }
+}
