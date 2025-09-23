@@ -22,8 +22,7 @@ function Introduction() {
     return (
         <div className="introduction">
             <header>
-                <h1>Hi, I'm <span style={{ color: "#8d697a" }}>Keegan.</span></h1>
-                <h2>A software developer</h2>
+                <h1>Hi, I'm <span style={{ color: "#8d697a" }}>Keegan.</span> A software developer.</h1>
             </header>
             <p>Multidisciplinary programmer based in Salt Lake City. Experienced problem-solver, eager to learn and build. I develop full-stack web applications, video games, and graphics programs.</p>
         </div>
