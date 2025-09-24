@@ -1,13 +1,33 @@
 import './landing_page.scss'
-import profile_pic from './assets/landing_page/profile_pic.jpg'
+
+import journal from './assets/landing_page/images/journal.webp'
+import laptop from './assets/landing_page/images/laptop.webp'
+import headphones from './assets/landing_page/images/headphones.webp'
+import mac from './assets/landing_page/images/mac.webp'
+import pen from './assets/landing_page/images/pen.webp'
+
+import profile_pic from './assets/landing_page/images/profile_pic.jpg'
 
 function LandingPage() {
     return (
         <div className="landing_page">
+            <BackgroundImages></BackgroundImages>
             <ProfilePicture></ProfilePicture>
             <Introduction></Introduction>
         </div>
     );
+}
+
+function BackgroundImages() {
+    return (
+        <div className="background_images_wrapper">
+            <img className="journal" src={journal} alt="Picture of journal"></img>
+            <img className="laptop" src={laptop} alt="Picture of laptop"></img>
+            <img className="headphones" src={headphones} alt="Picture of headphones"></img>
+            <img className="mac" src={mac} alt="Picture of mac"></img>
+            <img className="pen" src={pen} alt="Picture of pen"></img>
+        </div>
+    )
 }
 
 function ProfilePicture() {

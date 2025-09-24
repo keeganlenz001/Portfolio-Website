@@ -3,9 +3,62 @@
     max-width: 1280px;
     height: 100vh;
 
+    .background_images_wrapper {
+        // background-color: red;
+        position: absolute;
+
+        .journal {
+            margin-top: 30vh;
+            position: absolute;
+            rotate: -60deg;
+
+            width: 8vw;
+            height: 8vw;
+        }
+
+        .laptop {
+            margin-left: 6vw;
+            margin-top: 2vh;
+            position: absolute;
+            rotate: -30deg;
+
+            width: 12vw;
+            height: 12vw;
+        }
+
+        .headphones {
+            margin-left: 20vw;
+            margin-top: 2vh;
+            position: absolute;
+
+            width: 8vw;
+            height: 8vw;
+        }
+
+        .mac {
+            margin-left: 40vw;
+            margin-top: 5vh;
+            position: absolute;
+            rotate: 30deg;
+
+            width: 30vw;
+            height: 20vw;
+        }
+
+        .pen {
+            margin-left: 55vw;
+            margin-top: 35vh;
+            position: absolute;
+            rotate: 60deg;
+
+            width: 4vw;
+            height: 4vw;
+        }
+    }
+
     .profile_picture_wrapper {
         // background-color: blue;
-        padding-top: 10vh;
+        padding-top: 20vh;
         padding-bottom: 5vh;
         width: 100%;
 
@@ -48,7 +101,7 @@
             font-size: 0.5em;
             text-align: center;
 
-            max-width: 80vw;
+            width: 80%;
         }
     }
 }
