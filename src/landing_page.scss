@@ -73,7 +73,7 @@
 
             object-fit: cover;
 
-            outline-color: black;
+            outline-color: #303040;
             outline-style: solid;
             outline-width: calc(0.25vw + 0.25vh);
         }
@@ -82,17 +82,40 @@
     .contact_links_wrapper {
         // background-color: red;
 
-        .image_button {
-            padding: 2px;
+        padding-bottom: 2rem;
 
-            font-size: 2rem;
+        display: flex;
+        justify-content: center;
+
+        button {
+            border-color: #aeaec2;
+            border-style: solid;
+            border-radius: 2rem;
+            color: #aeaec2;
+            height: 2rem;
+
+            transition-duration: 0.25s;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        button:hover {
+            border-color: #4444c5;
+            color: #4444c5;            
+        }
+
+        .image_button {
+            font-size: 1.5rem;
+            width: 4rem;
+            margin-right: 1rem;
+        }
 
         .call_to_action {
-            padding: 5px;
+            font-size: 1rem;
             width: 10rem;
-            height: 2rem;
         }
 
         svg {
@@ -111,8 +134,10 @@
         justify-content: center;
 
         header {
-            padding-bottom: 24px;
+            padding-bottom: 1rem;
+
             h1 {
+                color: #303040;
                 font-size: 1em;
                 text-align: center;
                 width: 100%;
@@ -120,6 +145,7 @@
         }
 
         p {
+            color: #51516c;
             font-size: 0.5em;
             text-align: center;
 
