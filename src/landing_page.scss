@@ -82,15 +82,22 @@
     .contact_links_wrapper {
         // background-color: red;
 
-        padding-bottom: 2rem;
+        // border-color: #aeaec2;
+        // border-style: solid;
+        // border-radius: 2rem;
+        margin-bottom: 2rem;
+        // padding: 0.5rem;
+        // width: fit-content;
 
         display: flex;
         justify-content: center;
+        // justify-self: center;
 
         button {
             border-color: #aeaec2;
             border-style: solid;
             border-radius: 2rem;
+            box-shadow: 2px 2px 1.5rem #a9a9be;
             color: #aeaec2;
             height: 2rem;
 
@@ -104,13 +111,15 @@
 
         button:hover {
             border-color: #4444c5;
-            color: #4444c5;            
+            color: #4444c5;
+
+            scale: 1.15;
         }
 
         .image_button {
             font-size: 1.5rem;
             width: 4rem;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
         }
 
         .call_to_action {
