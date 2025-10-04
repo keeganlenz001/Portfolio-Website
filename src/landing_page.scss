@@ -1,5 +1,4 @@
-.landing_page {
-    // background-color: red;
+.landing_page_wrapper {
     max-width: 1280px;
     height: 100vh;
 
@@ -111,6 +110,7 @@
 
         button:hover {
             border-color: #4444c5;
+            box-shadow: 2px 2px 1.5rem #a9a9be;
             color: #4444c5;
 
             scale: 1.15;

@@ -10,7 +10,7 @@ import profile_pic from './assets/landing_page/images/profile_pic.jpg'
 
 function LandingPage() {
     return (
-        <div className="landing_page">
+        <div className="landing_page_wrapper">
             <LandingImages></LandingImages>
             <ProfilePicture></ProfilePicture>
             <ContactLinks></ContactLinks>
