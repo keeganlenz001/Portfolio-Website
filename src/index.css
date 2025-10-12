@@ -31,3 +31,14 @@ html {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+/* force Font Awesome 6 (solid) for elements needing FA6 glyphs */
+.fa6 {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900; /* solid */
+}
+
+/* force FA4 for legacy icons */
+.fa4 {
+  font-family: "FontAwesome"; /* name used by FA4 CSS */
+}
