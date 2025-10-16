@@ -14,6 +14,8 @@ Cream:              #ffecd6
 
 */
 
+$base-color: #f7f7f9;
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,7 +25,7 @@ Cream:              #ffecd6
 }
 
 html {
-    background-color: #f7f7f9;
+    background-color: $base-color;
 }
 
 .page_wrapper {

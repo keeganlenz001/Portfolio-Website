@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './index.scss'
 
 import LandingPage from './landing_page.tsx'
 import SkillsPage from './about_page.tsx'

@@ -1,5 +1,9 @@
+$base-color: #f7f7f9;
+$page-background: #0f0f2f;
+$card-background: #242441;
+
 .about_page {
-    background-color: #1a1a56;
+    background-color: $page-background;
 
     width: 100vw;
     height: 100vh;
@@ -9,7 +13,8 @@
     align-items: center;
 
     .about_wrapper {
-        background-color: red;
+        // background-color: red;
+        color: $base-color;
         width: 90vw;
         height: 40vw;
         max-width: 1280px;
@@ -35,7 +40,7 @@
         }
 
         .stack_skills_wrapper {
-            background-color: lightslategray;
+            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 8;
@@ -43,7 +48,7 @@
         }
 
         .call_to_action_wrapper {
-            background-color: darkslateblue;
+            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 2;
@@ -57,7 +62,7 @@
         }
 
         .typing_speed_wrapper {
-            background-color: white;
+            background-color: $card-background;
             border-radius: 1vw;
             
             grid-column: span 4;
@@ -69,7 +74,7 @@
         }
 
         .youtube_music_wrapper {
-            background-color: darkorange;
+            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 2;
@@ -77,7 +82,7 @@
         }
 
         .programming_languages_wrapper {
-            background-color: coral;
+            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 6;
@@ -85,7 +90,7 @@
         }
 
         .github_commits_wrapper {
-            background-color: darkcyan;
+            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 6;
