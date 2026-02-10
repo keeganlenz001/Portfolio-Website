@@ -1,6 +1,10 @@
 $base-color: #f7f7f9;
 $page-background: #0f0f2f;
-$card-background: #242441;
+
+$card-background: #151542;
+$card-border: #222269;
+
+$tag-background: #0f142f;
 
 .about_page {
     background-color: $page-background;
@@ -13,7 +17,6 @@ $card-background: #242441;
     align-items: center;
 
     .about_wrapper {
-        // background-color: red;
         color: $base-color;
         width: 90vw;
         height: 40vw;
@@ -24,8 +27,34 @@ $card-background: #242441;
         grid-template-rows: repeat(12, 1fr);
         gap: 1rem;
 
+        .card {
+            background-color: $card-background;
+
+            border-color: $card-border;
+            border-style: solid;
+            border-width: 2px;
+
+            h3 {
+                background-color: $tag-background;
+                border: solid;
+                border-width: 1px;
+                border-radius: 10rem;
+
+                font-size: 1rem;
+                font-weight: 600;
+
+                padding: 0.5rem;
+                margin: 1rem;
+
+                width: max-content;
+            }
+        }
+
+        // .card:hover {
+        //     background-color: #222269;
+        // }
+
         .map_wrapper {
-            background-color: blue;
             border-radius: 1vw;
             grid-column: span 4;
             grid-row: span 6;
@@ -37,10 +66,13 @@ $card-background: #242441;
                 height: 200px;
                 z-index: 100;
             }
+
+            .leaflet-tile-pane {
+                filter: invert(90%) grayscale(100%) sepia(100%) hue-rotate(202deg) saturate(4) contrast(1.2);
+            }
         }
 
         .stack_skills_wrapper {
-            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 8;
@@ -48,7 +80,6 @@ $card-background: #242441;
         }
 
         .call_to_action_wrapper {
-            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 2;
@@ -62,19 +93,17 @@ $card-background: #242441;
         }
 
         .typing_speed_wrapper {
-            background-color: $card-background;
             border-radius: 1vw;
             
             grid-column: span 4;
             grid-row: span 3;
 
-            h3 {
+            p {
                 font-size: 4rem;
             }
         }
 
         .youtube_music_wrapper {
-            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 2;
@@ -82,7 +111,6 @@ $card-background: #242441;
         }
 
         .programming_languages_wrapper {
-            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 6;
@@ -90,7 +118,6 @@ $card-background: #242441;
         }
 
         .github_commits_wrapper {
-            background-color: $card-background;
             border-radius: 1vw;
 
             grid-column: span 6;
