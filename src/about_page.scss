@@ -70,6 +70,33 @@ $tag-background: #0f142f;
             .leaflet-tile-pane {
                 filter: invert(90%) grayscale(100%) sepia(100%) hue-rotate(202deg) saturate(4) contrast(1.2);
             }
+
+            .zoom_button {
+                background-color: $page-background;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-color: $card-border;
+                border-radius: 50%;
+
+                bottom: 10px;
+                color: white;
+                cursor: pointer;
+
+                font-size: 18px;
+                font-weight: bold;
+                position: absolute;
+
+                width: 30px;
+                height: 30px;
+                z-index: 1000;
+            }
+
+            .zoom_out {
+                left: 10px;
+            }
+
+            .zoom_in {
+                right: 10px;
+            }
         }
 
         .stack_skills_wrapper {

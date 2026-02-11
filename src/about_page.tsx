@@ -1,8 +1,7 @@
 import './about_page.scss'
 
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer } from "react-leaflet";
-import { Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Circle, useMap } from "react-leaflet";
 import type { LatLngTuple } from "leaflet";
 
 function AboutPage() {
@@ -21,12 +20,53 @@ function AboutPage() {
     )
 }
 
+function ZoomInButton() {
+    const map = useMap();
+    
+    return (
+        <button
+            onClick={() => map.zoomIn(2)}
+            className="zoom_button zoom_in"
+        >
+            +
+        </button>
+    );
+}
+
+function ZoomOutButton() {
+    const map = useMap();
+    
+    return (
+        <button
+            onClick={() => map.zoomOut(2)}
+            className="zoom_button zoom_out"
+        >
+            -
+        </button>
+    );
+}
+
 function Location() {
     const center: LatLngTuple = [40.759926, -111.884888];
 
     return (
-        <MapContainer className="card map_wrapper" center={center} zoom={13}>
+        <MapContainer 
+            className="card map_wrapper" 
+            center={center} 
+            zoom={13}
+            zoomControl={false}
+            attributionControl={false}
+            dragging={false}
+            doubleClickZoom={false}
+            scrollWheelZoom={false}
+            touchZoom={false}
+            keyboard={false}
+        >
             <h3>Location</h3>
+
+            <ZoomInButton></ZoomInButton>
+            <ZoomOutButton></ZoomOutButton>
+
             <Circle 
                 center={center} 
                 radius={500} 
