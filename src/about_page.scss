@@ -2,7 +2,8 @@ $base-color: #f7f7f9;
 $page-background: #0f0f2f;
 
 $card-background: #151542;
-$card-border: #222269;
+// $card-border: #222269;
+$card-border: #4444c5;
 
 $tag-background: #0f142f;
 
@@ -68,11 +69,11 @@ $tag-background: #0f142f;
             }
 
             .leaflet-tile-pane {
-                filter: invert(90%) grayscale(100%) sepia(100%) hue-rotate(202deg) saturate(4) contrast(1.2);
+                filter: invert(90%) grayscale(100%) sepia(100%) hue-rotate(202deg) saturate(4) contrast(1.2) brightness(1);
             }
 
             .zoom_button {
-                background-color: $page-background;
+                background-color: $card-background;
                 border: 2px solid rgba(0, 0, 0, 0.2);
                 border-color: $card-border;
                 border-radius: 50%;
@@ -81,12 +82,12 @@ $tag-background: #0f142f;
                 color: white;
                 cursor: pointer;
 
-                font-size: 18px;
+                font-size: 15px;
                 font-weight: bold;
                 position: absolute;
 
-                width: 30px;
-                height: 30px;
+                width: 50px;
+                height: 50px;
                 z-index: 1000;
             }
 

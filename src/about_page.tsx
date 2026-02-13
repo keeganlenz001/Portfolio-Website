@@ -28,7 +28,7 @@ function ZoomInButton() {
             onClick={() => map.zoomIn(2)}
             className="zoom_button zoom_in"
         >
-            +
+            <i className="fa">&#xf067;</i>
         </button>
     );
 }
@@ -41,7 +41,7 @@ function ZoomOutButton() {
             onClick={() => map.zoomOut(2)}
             className="zoom_button zoom_out"
         >
-            -
+            <i className="fa">&#xf068;</i>
         </button>
     );
 }
@@ -53,7 +53,7 @@ function Location() {
         <MapContainer 
             className="card map_wrapper" 
             center={center} 
-            zoom={13}
+            zoom={12}
             zoomControl={false}
             attributionControl={false}
             dragging={false}
@@ -69,7 +69,7 @@ function Location() {
 
             <Circle 
                 center={center} 
-                radius={500} 
+                radius={1000} 
                 pathOptions={{ fillColor: "lime", color: "lime", fillOpacity: 0.3}}
             />
             <TileLayer
