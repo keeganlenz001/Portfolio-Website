@@ -1,8 +1,9 @@
 import './about_page.scss'
 
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Circle, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Circle, useMap, useMapEvents } from "react-leaflet";
 import type { LatLngTuple } from "leaflet";
+import { useState } from 'react';
 
 function AboutPage() {
     return (
@@ -20,29 +21,75 @@ function AboutPage() {
     )
 }
 
-function ZoomInButton() {
+function MapHeader() {
+    return <h3><i className="fa">&#xf041;</i> Location</h3>;
+}
+
+function ZoomInButton({ currentZoom, maxZoom }: { currentZoom: number; maxZoom: number }) {
     const map = useMap();
+    let disabled = false;
+    
+    if (currentZoom >= maxZoom) {
+        disabled = true;
+    }
+    
+    let button_class = "zoom_button zoom_in";
+    if (disabled) {
+        button_class = "zoom-button zoom-in hidden";
+    }
     
     return (
         <button
             onClick={() => map.zoomIn(2)}
-            className="zoom_button zoom_in"
+            className={button_class}
         >
             <i className="fa">&#xf067;</i>
         </button>
     );
 }
 
-function ZoomOutButton() {
+function ZoomOutButton({ currentZoom, minZoom }: { currentZoom: number; minZoom: number }) {
     const map = useMap();
+
+    let disabled = false;
+    
+    if (currentZoom <= minZoom) {
+        disabled = true;
+    }
+    
+    let button_class = "zoom_button zoom_out";
+    if (disabled) {
+        button_class = "zoom-button zoom-out hidden";
+    }
     
     return (
         <button
             onClick={() => map.zoomOut(2)}
-            className="zoom_button zoom_out"
+            className={button_class}
         >
             <i className="fa">&#xf068;</i>
         </button>
+    );
+}
+
+function ZoomControls() {
+    const [zoom, setZoom] = useState(13);
+    const map = useMap();
+    
+    useMapEvents({
+        zoomend: () => {
+            setZoom(map.getZoom());
+        }
+    });
+    
+    const minZoom = 12; // Default is 0
+    const maxZoom = 15; // Default is 18
+
+    return (
+        <>
+            <ZoomInButton currentZoom={zoom} maxZoom={maxZoom}></ZoomInButton>
+            <ZoomOutButton currentZoom={zoom} minZoom={minZoom}></ZoomOutButton>
+        </>
     );
 }
 
@@ -53,7 +100,7 @@ function Location() {
         <MapContainer 
             className="card map_wrapper" 
             center={center} 
-            zoom={12}
+            zoom={13}
             zoomControl={false}
             attributionControl={false}
             dragging={false}
@@ -62,15 +109,14 @@ function Location() {
             touchZoom={false}
             keyboard={false}
         >
-            <h3>Location</h3>
+            <MapHeader></MapHeader>
 
-            <ZoomInButton></ZoomInButton>
-            <ZoomOutButton></ZoomOutButton>
+            <ZoomControls></ZoomControls>
 
             <Circle 
                 center={center} 
-                radius={1000} 
-                pathOptions={{ fillColor: "lime", color: "lime", fillOpacity: 0.3}}
+                radius={500} 
+                pathOptions={{ fillColor: "green", color: "red", fillOpacity: 0.5, opacity: 0}}
             />
             <TileLayer
                 // url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`}

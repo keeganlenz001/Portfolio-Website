@@ -35,6 +35,8 @@ $tag-background: #0f142f;
             border-style: solid;
             border-width: 2px;
 
+            overflow: hidden;
+
             h3 {
                 background-color: $tag-background;
                 border: solid;
@@ -59,6 +61,11 @@ $tag-background: #0f142f;
             border-radius: 1vw;
             grid-column: span 4;
             grid-row: span 6;
+
+            h3 {
+                position: absolute;
+                z-index: 1000;
+            }
 
             .location_overlay {
                 background-color: green;
@@ -89,6 +96,10 @@ $tag-background: #0f142f;
                 width: 50px;
                 height: 50px;
                 z-index: 1000;
+
+                transform: scale(1);
+                transition: transform 0.3s ease;
+                will-change: transform;
             }
 
             .zoom_out {
@@ -97,6 +108,11 @@ $tag-background: #0f142f;
 
             .zoom_in {
                 right: 10px;
+            }
+
+            .hidden {
+                transform: scale(0);
+                pointer-events: none;
             }
         }
 
