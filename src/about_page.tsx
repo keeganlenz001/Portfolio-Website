@@ -25,53 +25,6 @@ function MapHeader() {
     return <h3><i className="fa">&#xf041;</i> Location</h3>;
 }
 
-function ZoomInButton({ currentZoom, maxZoom }: { currentZoom: number; maxZoom: number }) {
-    const map = useMap();
-    let disabled = false;
-    
-    if (currentZoom >= maxZoom) {
-        disabled = true;
-    }
-    
-    let button_class = "zoom_button zoom_in";
-    if (disabled) {
-        button_class = "zoom-button zoom-in hidden";
-    }
-    
-    return (
-        <button
-            onClick={() => map.zoomIn(2)}
-            className={button_class}
-        >
-            <i className="fa">&#xf067;</i>
-        </button>
-    );
-}
-
-function ZoomOutButton({ currentZoom, minZoom }: { currentZoom: number; minZoom: number }) {
-    const map = useMap();
-
-    let disabled = false;
-    
-    if (currentZoom <= minZoom) {
-        disabled = true;
-    }
-    
-    let button_class = "zoom_button zoom_out";
-    if (disabled) {
-        button_class = "zoom-button zoom-out hidden";
-    }
-    
-    return (
-        <button
-            onClick={() => map.zoomOut(2)}
-            className={button_class}
-        >
-            <i className="fa">&#xf068;</i>
-        </button>
-    );
-}
-
 function ZoomControls() {
     const [zoom, setZoom] = useState(13);
     const map = useMap();
@@ -85,10 +38,38 @@ function ZoomControls() {
     const minZoom = 12; // Default is 0
     const maxZoom = 15; // Default is 18
 
+    let zoomInDisabled = false;
+    let zoomOutDisabled = false;
+    let zoomInClass = "zoom_button zoom_in";
+    let zoomOutClass = "zoom_button zoom_out";
+    
+    if (zoom >= maxZoom) {
+        zoomInDisabled = true;
+    } else if (zoom <= minZoom) {
+        zoomOutDisabled = true;
+    }
+
+    if (zoomInDisabled) {
+        zoomInClass = "zoom_button zoom_in hidden";
+    } else if (zoomOutDisabled) {
+        zoomOutClass = "zoom_button zoom_out hidden";
+    }
+
     return (
         <>
-            <ZoomInButton currentZoom={zoom} maxZoom={maxZoom}></ZoomInButton>
-            <ZoomOutButton currentZoom={zoom} minZoom={minZoom}></ZoomOutButton>
+            <button
+                onClick={() => map.zoomIn(2)}
+                className={zoomInClass}
+            >
+                <i className="fa">&#xf067;</i>
+            </button>
+
+            <button
+                onClick={() => map.zoomOut(2)}
+                className={zoomOutClass}
+            >
+                <i className="fa">&#xf068;</i>
+            </button>
         </>
     );
 }
