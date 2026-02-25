@@ -47,7 +47,7 @@ $tag-background: #0f142f;
                 font-weight: 600;
 
                 padding: 0.5rem;
-                margin: 1rem;
+                margin: 1rem 0rem 0rem 1rem;
 
                 width: max-content;
             }
@@ -136,14 +136,43 @@ $tag-background: #0f142f;
         }
 
         .typing_speed_wrapper {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            
             border-radius: 1vw;
             
             grid-column: span 4;
             grid-row: span 3;
 
-            p {
-                font-size: 4rem;
+            .typing_speed {
+                margin-left: 0.5rem;
+
+                display: flex;
+                align-items: baseline;
+                
+
+                p:nth-child(1) {
+                    font-size: 4rem;
+                }
+
+                p:nth-child(2) {
+                    font-size: 2rem;
+                }
             }
+
+            .typing_stats {
+                margin-left: 1rem;
+
+                p {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .typing_speed_wrapper:hover{
+            cursor: pointer;
         }
 
         .youtube_music_wrapper {
