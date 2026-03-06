@@ -135,13 +135,17 @@ function TypingSpeed() {
                 &nbsp; Typing Speed
             </h3>
 
+            <div className="background_typing_speed">
+                <p>117</p>
+            </div>
+
             <div className="typing_speed">
                 <p>117</p>
                 <p>wpm</p>
             </div> 
 
             <div className="typing_stats">
-                <p><i className="fa">&#xf2f2;</i> 60s &nbsp;<i className="fa">&#xf140;</i> 98%</p>
+                <p><i className="fa wpm_symbol">&#xf2f2;</i> 60s &nbsp;<i className="fa wpm_symbol">&#xf140;</i> 98%</p>
             </div>
         </a>
     )

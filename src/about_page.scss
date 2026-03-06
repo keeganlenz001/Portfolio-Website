@@ -146,6 +146,20 @@ $tag-background: #0f142f;
             grid-column: span 4;
             grid-row: span 3;
 
+            .background_typing_speed {
+                position: relative;
+                // background-color: red;
+                font-size: 10rem;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    position: absolute;
+                }
+            }
+
             .typing_speed {
                 margin-left: 0.5rem;
 
@@ -166,7 +180,12 @@ $tag-background: #0f142f;
                 margin-left: 1rem;
 
                 p {
-                    font-size: 1.5rem;
+                    font-size: 1.25rem;
+                }
+
+                .wpm_symbol {
+                    font-size: 1rem;
+                    color: gray;
                 }
             }
         }
