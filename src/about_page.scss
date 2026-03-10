@@ -47,7 +47,7 @@ $tag-background: #0f142f;
                 font-weight: 600;
 
                 padding: 0.5rem;
-                margin: 1rem 0rem 0rem 1rem;
+                margin: 1.25rem 0rem 0rem 1.25rem;
 
                 width: max-content;
             }
@@ -140,52 +140,69 @@ $tag-background: #0f142f;
             text-decoration: none;
             cursor: pointer;
             outline: none;
+            position: relative;
             
             border-radius: 1vw;
             
-            grid-column: span 4;
+            grid-column: span 2;
             grid-row: span 3;
 
             .background_typing_speed {
-                position: relative;
-                // background-color: red;
-                font-size: 10rem;
+
+                // position: relative;
+                background-color: red;
+                line-height: 0.8;
 
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
                 p {
+                    font-family: 'Fustat', sans-serif;
+                    font-size: 10rem;
+                    font-weight: 500;
                     position: absolute;
                 }
             }
 
-            .typing_speed {
-                margin-left: 0.5rem;
-
+            .typing_info {
+                // background-color: red;
                 display: flex;
-                align-items: baseline;
-                
+                flex-wrap: wrap;
+                gap: 0.5rem;
 
-                p:nth-child(1) {
-                    font-size: 4rem;
+                position: absolute;
+                left: 1.25rem;
+                bottom: 1.25rem;
+
+                .typing_speed {
+                    line-height: 0.8;
+
+                    width: 100%;
+
+                    p {
+                        font-family: 'Fustat', sans-serif;
+                        font-size: 4rem;
+                        font-weight: 500;
+                    }
+                    
+                    .small {
+                        font-size: 1.5rem;
+                    }
                 }
 
-                p:nth-child(2) {
-                    font-size: 2rem;
-                }
-            }
+                .typing_stats {
+                    line-height: 0.8;
 
-            .typing_stats {
-                margin-left: 1rem;
+                    p {
+                        font-size: 1.25rem;
+                    }
 
-                p {
-                    font-size: 1.25rem;
-                }
-
-                .wpm_symbol {
-                    font-size: 1rem;
-                    color: gray;
+                    .wpm_symbol {
+                        font-size: 1rem;
+                        color: $card-border;
+                        // color: gray;
+                    }
                 }
             }
         }
@@ -197,8 +214,8 @@ $tag-background: #0f142f;
         .youtube_music_wrapper {
             border-radius: 1vw;
 
-            grid-column: span 2;
-            grid-row: span 3
+            grid-column: span 4;
+            grid-row: span 3;
         }
 
         .programming_languages_wrapper {
