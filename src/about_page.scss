@@ -51,6 +51,12 @@ $tag-background: #0f142f;
 
                 width: max-content;
             }
+
+            .youtube_header {
+                position: absolute;
+                margin: 0;
+                right: 1.25rem;
+            }
         }
 
         // .card:hover {
@@ -216,6 +222,16 @@ $tag-background: #0f142f;
 
             grid-column: span 4;
             grid-row: span 3;
+
+            .album_art {
+                aspect-ratio: 1;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
         }
 
         .programming_languages_wrapper {

@@ -5,6 +5,8 @@ import { MapContainer, TileLayer, Circle, useMap, useMapEvents } from "react-lea
 import type { LatLngTuple } from "leaflet";
 import { useState } from 'react';
 
+import { songs } from "./assets/about_page/songs/songs";
+
 function AboutPage() {
     return (
         <div className="about_page">
@@ -145,7 +147,7 @@ function TypingSpeed() {
                 </div> 
 
                 <div className="typing_stats">
-                    <p><i className="fa wpm_symbol">&#xf2f2;</i>&nbsp; 60s &nbsp; &nbsp;<i className="fa wpm_symbol">&#xf140;</i>&nbsp; 98%</p>
+                    <p><i className="fa wpm_symbol">&#xf2f2;</i> 60s &nbsp; &nbsp;<i className="fa wpm_symbol">&#xf140;</i> 98%</p>
                 </div>
             </div>
         </a>
@@ -153,11 +155,20 @@ function TypingSpeed() {
 }
 
 function YouTubeMusic() {
+    const song = songs[0];
+
     return (
         <div className="card youtube_music_wrapper">
-            <h3>
+            <h3 className="youtube_header">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 13.5v-7l6 3.5-6 3.5z"/> </svg>
             </h3>
+
+            <div className="album_art">
+                <img 
+                    src={`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`}
+                    alt={`${song.title} by ${song.artist}`}
+                ></img>
+            </div>
         </div>
     )
 }
