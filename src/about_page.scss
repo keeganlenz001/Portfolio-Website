@@ -33,29 +33,26 @@ $tag-background: #0f142f;
 
             border-color: $card-border;
             border-style: solid;
-            border-width: 2px;
+            border-width: 1px;
 
             overflow: hidden;
 
             h3 {
                 background-color: $tag-background;
                 border: solid;
+                border-color: $card-border;
                 border-width: 1px;
                 border-radius: 10rem;
 
-                font-size: 1rem;
+                font-size: 0.8rem;
                 font-weight: 600;
 
-                padding: 0.5rem;
-                margin: 1.25rem 0rem 0rem 1.25rem;
+                padding: 0.4rem;
+                padding-right: 0.8rem;
+                padding-left: 0.8rem;
+                margin: 1rem 0rem 0rem 1.25rem;
 
                 width: max-content;
-            }
-
-            .youtube_header {
-                position: absolute;
-                margin: 0;
-                right: 1.25rem;
             }
         }
 
@@ -95,12 +92,12 @@ $tag-background: #0f142f;
                 color: white;
                 cursor: pointer;
 
-                font-size: 15px;
+                font-size: 1rem;
                 font-weight: bold;
                 position: absolute;
 
-                width: 50px;
-                height: 50px;
+                width: 3rem;
+                height: 3rem;
                 z-index: 1000;
 
                 transform: scale(1);
@@ -223,14 +220,53 @@ $tag-background: #0f142f;
             grid-column: span 4;
             grid-row: span 3;
 
+            position: relative;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            .youtube_header {
+                line-height: 0;
+                padding: 0.35rem;
+
+                position: absolute;
+                margin: 0;
+                top: 1rem;
+                right: 1.25rem;
+
+                transition: color 0.2s;
+            }
+
             .album_art {
                 aspect-ratio: 1;
                 overflow: hidden;
+                padding: 1rem;
+
+                width: 40%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 img {
                     object-fit: cover;
                     object-position: center;
                 }
+            }
+
+            .song_info {
+                // background-color: red;
+                width: 40%;
+            }
+        }
+
+        .youtube_music_wrapper:hover {
+            cursor: pointer;
+
+            .youtube_header {
+                color: #f5033d;
+
+                transition: color 0.2s;
             }
         }
 
