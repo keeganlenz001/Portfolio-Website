@@ -163,17 +163,20 @@ function YouTubeMusic() {
                 <svg className="youtube_icon" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 13.5v-7l6 3.5-6 3.5z"/> </svg>
             </h3>
 
-            <div className="album_art">
-                <img 
-                    src={`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`}
-                    alt={`${song.title} by ${song.artist}`}
-                ></img>
-            </div>
+            <div className="youtube_content">
+                <div className="album_art">
+                    <img 
+                        className = "album_art"
+                        src={`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`}
+                        alt={`${song.title} by ${song.artist}`}
+                    ></img>
+                </div>
 
-            <div className="song_info">
-                <p>Last played</p>
-                <p>{`${song.title}`}</p>
-                <p>{`${song.artist}`}</p>
+                <div className="song_info">
+                    <p>Last played</p>
+                    <p>{`${song.title}`}</p>
+                    <p>{`${song.artist}`}</p>
+                </div>
             </div>
         </div>
     )

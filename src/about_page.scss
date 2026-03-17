@@ -223,7 +223,6 @@ $tag-background: #0f142f;
             position: relative;
 
             display: flex;
-            flex-wrap: wrap;
 
             .youtube_header {
                 line-height: 0;
@@ -237,26 +236,47 @@ $tag-background: #0f142f;
                 transition: color 0.2s;
             }
 
-            .album_art {
-                aspect-ratio: 1;
-                overflow: hidden;
-                padding: 1rem;
-
-                width: 40%;
+            .youtube_content {
+                // background-color: red;
+                padding: 1.5rem;
+                width: 100%;
 
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                align-items: stretch;
 
-                img {
-                    object-fit: cover;
-                    object-position: center;
+                .album_art {
+                    img {
+                        aspect-ratio: 1;
+                        border-radius: 1rem;
+                        object-fit: cover;
+                        object-position: center;
+                        width: 100%;
+                        height: 100%;
+                        transform: scale(1.001);
+                    }
                 }
-            }
 
-            .song_info {
-                // background-color: red;
-                width: 40%;
+                .song_info {
+                    // background-color: red;
+                    height: 100%;
+                    font-weight: 500;
+                    flex: 1;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    padding: 1.5rem 0rem 1.5rem 2rem;
+
+                    p:nth-child(1), p:nth-child(3) {
+                        color: lightslategray;
+                        font-size: 1rem;
+                    }
+
+                    p:nth-child(2) {
+                        font-size: 1.25rem;
+                    }
+                }
             }
         }
 
