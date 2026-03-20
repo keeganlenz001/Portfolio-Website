@@ -155,10 +155,10 @@ function TypingSpeed() {
 }
 
 function YouTubeMusic() {
-    const song = songs[0];
+    const song = songs[2];
 
     return (
-        <div className="card youtube_music_wrapper">
+        <a className="card youtube_music_wrapper" href={`${song.url}`} target="_blank">
             <h3 className="youtube_header">
                 <svg className="youtube_icon" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 13.5v-7l6 3.5-6 3.5z"/> </svg>
             </h3>
@@ -178,7 +178,7 @@ function YouTubeMusic() {
                     <p>{`${song.artist}`}</p>
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
 
