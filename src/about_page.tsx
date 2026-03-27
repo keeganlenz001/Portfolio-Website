@@ -184,10 +184,38 @@ function YouTubeMusic() {
 
 function ProgrammingLanguages() {
     return (
-        <div className="card programming_languages_wrapper">
-            <h3>
-                <i className="fa">&#xf121;</i>&nbsp; Programming Languages
-            </h3>
+        <div className="card languages_wrapper">
+            <h3><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
+
+            <div className="languages">
+                <div className="col_1">
+                    <div className="language_1">
+                        <h4>TypeScript</h4>
+                    </div>
+
+                    <div className="language_2">
+                        <h4>Java</h4>
+                    </div>
+
+                    <div className="language_3">
+                        <h4>Lua</h4>
+                    </div>
+                </div>
+
+                <div className="col_2">
+                    <div className="language_1">
+                        <h4>HTML</h4>
+                    </div>
+
+                    <div className="language_2">
+                        <h4>CSS / SCSS</h4>
+                    </div>
+
+                    <div className="language_3">
+                        <h4>SQL</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
