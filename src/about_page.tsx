@@ -189,30 +189,46 @@ function ProgrammingLanguages() {
 
             <div className="languages">
                 <div className="col_1">
-                    <div className="language_1">
-                        <h4>TypeScript</h4>
-                    </div>
-
-                    <div className="language_2">
+                    <div className="language">
                         <h4>Java</h4>
+                        <div className="skill_bar"></div>
                     </div>
 
-                    <div className="language_3">
+                    <div className="language">
+                        <h4>TypeScript</h4>
+                        <div className="skill_bar"></div>
+                    </div>
+
+                    <div className="language">
                         <h4>Lua</h4>
+                        <div className="skill_bar"></div>
+                    </div>
+
+                    <div className="language">
+                        <h4>Python</h4>
+                        <div className="skill_bar"></div>
                     </div>
                 </div>
 
                 <div className="col_2">
-                    <div className="language_1">
+                    <div className="language">
                         <h4>HTML</h4>
+                        <div className="skill_bar"></div>
                     </div>
 
-                    <div className="language_2">
+                    <div className="language">
                         <h4>CSS / SCSS</h4>
+                        <div className="skill_bar"></div>
                     </div>
 
-                    <div className="language_3">
+                    <div className="langauge">
+                        <h4>JSON</h4>
+                        <div className="skill_bar"></div>
+                    </div>
+
+                    <div className="language">
                         <h4>SQL</h4>
+                        <div className="skill_bar"></div>
                     </div>
                 </div>
             </div>
