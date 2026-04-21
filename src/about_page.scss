@@ -1,5 +1,6 @@
 $base-color: #f7f7f9;
-$page-background: #0f0f2f;
+// $page-background: #0f0f2f;
+$page-background: #0a0b20;
 
 $card-background: #151542;
 // $card-hover-background: #1a1a51;
@@ -91,7 +92,7 @@ $tag-background: #0f142f;
                 border-radius: 50%;
 
                 bottom: 10px;
-                color: white;
+                color: $base-color;
                 cursor: pointer;
 
                 font-size: 1rem;
@@ -321,15 +322,76 @@ $tag-background: #0f142f;
             grid-row: span 6;
 
             .languages {
-                margin: 1rem;
+                margin: 1rem 1.25rem 1rem 1.25rem;
                 height: calc(100% - 6rem);
                 display: flex;
                 justify-content: space-between;
 
-                .skill_bar {
+                .bar_outline {
+                    // background-color: black;
+                    background-color: $page-background;
+                    // border: 1px solid $base-color;
                     border-radius: 1rem;
                     margin-top: 0.5rem;
-                    height: 1.5rem;
+                    position: relative;
+
+                    width: 100%;
+                    height: 0.5rem;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .skill_bar {
+                        // border-radius: 1rem;
+                        border-bottom-left-radius: 1rem;
+                        border-top-left-radius: 1rem;
+                        height: 100%;
+                    }
+
+                    .skill_markers {
+                        // background-color: $card-border;
+                        position: absolute;
+
+                        width: calc(67% + 4px);
+                        left: calc(33% - 4px);
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        .marker {
+                            background-color: $page-background;
+                            width: 4px;
+                            height: 1rem;
+                        }
+
+                        .marker:nth-child(3) {
+                            width: 0;
+                        }
+                    }
+                }
+
+                .skill_key {
+                    // background-color: red;
+                    font-size: 0.67rem;
+                    margin-left: 25%;
+                    margin-top: 0.5rem;
+                    width: calc(75% + 0.75rem);
+
+                    display: flex;
+                    justify-content: space-between;
+
+                    p {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        
+                        .skill_marker {
+                            background-color: red;
+                            width: 10px;
+                            height: 10px;
+                        }
+                    }
                 }
 
                 .col_1 {
@@ -350,14 +412,15 @@ $tag-background: #0f142f;
                     .language:nth-child(2) {
                         .skill_bar {
                             background-color: #3178c6;
-                            width: 65%;
+                            width: 70%;
                         }
                     }
 
                     .language:nth-child(3) {
                         .skill_bar {
-                            background-color: #00007e;
-                            width: 100%;
+                            background-color: #3333ff;
+                            // border-radius: 1rem;
+                            width: 90%;
                         }
                     }
 
@@ -380,21 +443,21 @@ $tag-background: #0f142f;
                     .language:nth-child(1) {
                         .skill_bar {
                             background-color: #e54c22;
-                            width: 90%;
+                            width: 85%;
                         }
                     }
 
                     .language:nth-child(2) {
                         .skill_bar {
                             background-color: #65309a;
-                            width: 100%;
+                            width: 90%;
                         }
                     }
 
                     .language:nth-child(3) {
                         .skill_bar {
                             background-color: grey;
-                            width: 50%;
+                            width: 25%;
                         }
                     }
 

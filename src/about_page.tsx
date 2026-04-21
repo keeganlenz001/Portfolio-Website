@@ -191,44 +191,124 @@ function ProgrammingLanguages() {
                 <div className="col_1">
                     <div className="language">
                         <h4>Java</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
 
                     <div className="language">
                         <h4>TypeScript</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
 
                     <div className="language">
                         <h4>Lua</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
 
                     <div className="language">
                         <h4>Python</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
                 </div>
 
                 <div className="col_2">
                     <div className="language">
                         <h4>HTML</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
 
                     <div className="language">
                         <h4>CSS / SCSS</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
 
-                    <div className="langauge">
+                    <div className="language">
                         <h4>JSON</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
 
                     <div className="language">
                         <h4>SQL</h4>
-                        <div className="skill_bar"></div>
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
                     </div>
                 </div>
             </div>
