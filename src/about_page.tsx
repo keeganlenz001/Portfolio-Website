@@ -200,7 +200,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Master</p>
                         </div>
                     </div>
 
@@ -215,7 +215,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Proficient</p>
                         </div>
                     </div>
 
@@ -230,7 +230,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Master</p>
                         </div>
                     </div>
 
@@ -245,7 +245,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Proficient</p>
                         </div>
                     </div>
                 </div>
@@ -262,7 +262,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Master</p>
                         </div>
                     </div>
 
@@ -277,7 +277,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Master</p>
                         </div>
                     </div>
 
@@ -292,7 +292,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Learning</p>
                         </div>
                     </div>
 
@@ -307,7 +307,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                            <p>Proficient</p>
                         </div>
                     </div>
                 </div>
