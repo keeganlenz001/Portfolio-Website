@@ -200,7 +200,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Master</p>
+                            <p>Proficient</p>
                         </div>
                     </div>
 
@@ -230,7 +230,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Master</p>
+                            <p>Proficient</p>
                         </div>
                     </div>
 
@@ -307,7 +307,7 @@ function ProgrammingLanguages() {
                         </div>
 
                         <div className="skill_key">
-                            <p>Proficient</p>
+                            <p>Learning</p>
                         </div>
                     </div>
                 </div>
