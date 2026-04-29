@@ -185,7 +185,27 @@ function YouTubeMusic() {
 function ProgrammingLanguages() {
     return (
         <div className="card languages_wrapper">
-            <h3><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
+            <header>
+                <div className="col_1">
+                    <h3 className="languages_header"><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
+                </div>
+
+                <div className="col_2">
+                    <div className="language">
+                        <div className="bar_outline">
+                            <div className="skill_bar"></div>
+                            
+                            <div className="skill_markers">
+                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                            </div>
+                        </div>
+
+                        <div className="skill_key">
+                            <p>Learning</p><p>Proficient</p><p>Master</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
             <div className="languages">
                 <div className="col_1">

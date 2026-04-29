@@ -15,7 +15,7 @@ $tag-background: #0f142f;
 
     width: 100vw;
     height: 100vh;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,8 @@ $tag-background: #0f142f;
         max-width: 1280px;
 
         display: grid;
-        grid-template-columns: repeat(12, 1fr); /* 12 flexible columns */
+        grid-template-columns: repeat(12, 1fr);
+        /* 12 flexible columns */
         grid-template-rows: repeat(12, 1fr);
         gap: 1rem;
 
@@ -147,11 +148,11 @@ $tag-background: #0f142f;
             cursor: pointer;
             outline: none;
             position: relative;
-            
+
             border-radius: 1vw;
 
             transition: background-color 0.2s;
-            
+
             grid-column: span 2;
             grid-row: span 3;
 
@@ -193,7 +194,7 @@ $tag-background: #0f142f;
                         font-size: 4rem;
                         font-weight: 500;
                     }
-                    
+
                     .small {
                         font-size: 1.5rem;
                     }
@@ -215,7 +216,7 @@ $tag-background: #0f142f;
             }
         }
 
-        .typing_speed_wrapper:hover{
+        .typing_speed_wrapper:hover {
             background-color: $card-hover-background;
             cursor: pointer;
 
@@ -290,7 +291,8 @@ $tag-background: #0f142f;
                         text-overflow: ellipsis;
                     }
 
-                    p:nth-child(1), p:nth-child(3) {
+                    p:nth-child(1),
+                    p:nth-child(3) {
                         color: lightslategray;
                         font-size: 1rem;
                     }
@@ -321,10 +323,110 @@ $tag-background: #0f142f;
             grid-column: span 6;
             grid-row: span 6;
 
+            header {
+                margin: 0rem 2rem 0rem 1.25rem;
+
+                display: flex;
+                justify-content: space-between;
+
+                .languages_header {
+                    margin: 1rem 0rem 0rem 0rem;
+                }
+
+                .language {
+                    margin: 1rem 0rem 0rem 0rem;
+
+                    .skill_key {
+                        margin-left: calc(33% - 6px);
+                        width: 67%;
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        p:first-child {
+                            transform: translateX(-50%);
+                        }
+
+                        p:last-child {
+                            transform: translateX(50%);
+                        }
+                    }
+
+                    .skill_markers {
+                        .marker:last-child {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .bar_outline {
+                // background-color: black;
+                background-color: $page-background;
+                // border: 1px solid $base-color;
+                border-radius: 1rem;
+                // border-right: 1px solid white;
+                margin-top: 0.5rem;
+                position: relative;
+
+                width: 100%;
+                height: 1rem;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .skill_bar {
+                    // border-radius: 1rem;
+                    border-bottom-left-radius: 1rem;
+                    border-top-left-radius: 1rem;
+                    height: 100%;
+                }
+
+                .skill_markers {
+                    // background-color: $card-border;
+                    position: absolute;
+
+                    width: calc(67% + 4px);
+                    left: calc(33% - 4px);
+
+                    display: flex;
+                    justify-content: space-between;
+
+                    .marker {
+                        background-color: $base-color;
+                        width: 2px;
+                        height: 1rem;
+                    }
+
+                    .marker:last-child {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            .skill_key {
+                font-size: 0.67rem;
+                margin-top: 0.25rem;
+                width: 100%;
+            }
+
+            .col_1, .col_2 {
+                margin-right: 1rem;
+                width: 50%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .col_2 {
+                margin-left: 1rem;
+            }
+
             .languages {
-                // background-color: red;
                 margin: 1rem 2rem 1rem 1.25rem;
-                height: calc(100% - 5rem);
+                height: calc(100% - 6rem);
 
                 display: flex;
                 justify-content: space-between;
@@ -336,56 +438,7 @@ $tag-background: #0f142f;
                     }
                 }
 
-                .bar_outline {
-                    // background-color: black;
-                    background-color: $page-background;
-                    // border: 1px solid $base-color;
-                    border-radius: 1rem;
-                    // border-right: 1px solid white;
-                    margin-top: 0.5rem;
-                    position: relative;
-
-                    width: 100%;
-                    height: 1rem;
-
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-
-                    .skill_bar {
-                        // border-radius: 1rem;
-                        border-bottom-left-radius: 1rem;
-                        border-top-left-radius: 1rem;
-                        height: 100%;
-                    }
-
-                    .skill_markers {
-                        // background-color: $card-border;
-                        position: absolute;
-
-                        width: calc(67% + 4px);
-                        left: calc(33% - 4px);
-
-                        display: flex;
-                        justify-content: space-between;
-
-                        .marker {
-                            background-color: $base-color;
-                            width: 2px;
-                            height: 1rem;
-                        }
-
-                        .marker:last-child {
-                            opacity: 0;
-                        }
-                    }
-                }
-
                 .skill_key {
-                    font-size: 0.67rem;
-                    margin-top: 0.25rem;
-                    width: 100%;
-
                     p {
                         margin-left: 100%;
                         width: fit-content;
@@ -394,7 +447,7 @@ $tag-background: #0f142f;
                         // transform: translateX(-50%) skewY(-0.25rad);
                         transform: translateX(-50%) translateY(100%);
                         transition: 0.5s ease;
-                        
+
                         .skill_marker {
                             width: 10px;
                             height: 10px;
@@ -403,17 +456,10 @@ $tag-background: #0f142f;
                 }
 
                 .col_1 {
-                    margin-right: 1rem;
-                    width: 50%;
-
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-
                     .language:nth-child(1) {
                         .skill_bar {
                             background-color: #f08f1a;
-                            background: linear-gradient(90deg,rgba(240, 143, 26, 0.33) 0%, rgba(240, 143, 26, 1) 75.9%, rgba(255, 255, 255, 1) 138%);
+                            background: linear-gradient(90deg, rgba(240, 143, 26, 0.33) 0%, rgba(240, 143, 26, 1) 75.9%, rgba(255, 255, 255, 1) 138%);
                             width: 85%;
                         }
 
@@ -427,7 +473,7 @@ $tag-background: #0f142f;
                     .language:nth-child(2) {
                         .skill_bar {
                             background-color: #3178c6;
-                            background: linear-gradient(90deg,rgba(49, 120, 198, 0.33) 0%, rgba(49, 120, 198, 1) 79.2%, rgba(255, 255, 255, 1) 144%);
+                            background: linear-gradient(90deg, rgba(49, 120, 198, 0.33) 0%, rgba(49, 120, 198, 1) 79.2%, rgba(255, 255, 255, 1) 144%);
                             width: 80%;
                         }
 
@@ -441,7 +487,7 @@ $tag-background: #0f142f;
                     .language:nth-child(3) {
                         .skill_bar {
                             background-color: #3333ff;
-                            background: linear-gradient(90deg,rgba(51, 51, 255, 0.33) 0%, rgba(51, 51, 255, 1) 69.3%, rgba(255, 255, 255, 1) 126%);
+                            background: linear-gradient(90deg, rgba(51, 51, 255, 0.33) 0%, rgba(51, 51, 255, 1) 69.3%, rgba(255, 255, 255, 1) 126%);
                             width: 95%;
                         }
 
@@ -455,7 +501,7 @@ $tag-background: #0f142f;
                     .language:nth-child(4) {
                         .skill_bar {
                             background-color: #ffdb49;
-                            background: linear-gradient(90deg,rgba(252, 220, 76, 0.1) 0%, rgba(252, 220, 76, 0.89) 100%);
+                            background: linear-gradient(90deg, rgba(252, 220, 76, 0.1) 0%, rgba(252, 220, 76, 0.89) 100%);
                             width: 66%;
                         }
 
@@ -469,16 +515,11 @@ $tag-background: #0f142f;
 
                 .col_2 {
                     margin-left: 1rem;
-                    width: 50%;
-
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
 
                     .language:nth-child(1) {
                         .skill_bar {
                             background-color: #e54c22;
-                            background: linear-gradient(90deg,rgba(229, 76, 34, 0.33) 0%, rgba(229, 76, 34, 1) 66%, rgba(255, 255, 255, 1) 120%);
+                            background: linear-gradient(90deg, rgba(229, 76, 34, 0.33) 0%, rgba(229, 76, 34, 1) 66%, rgba(255, 255, 255, 1) 120%);
                             border-radius: 1rem;
                             width: 100%;
                         }
@@ -487,7 +528,7 @@ $tag-background: #0f142f;
                     .language:nth-child(2) {
                         .skill_bar {
                             background-color: #65309a;
-                            background: linear-gradient(90deg,rgba(101, 48, 154, 0.33) 0%, rgba(101, 48, 154, 1) 66%, rgba(255, 255, 255, 1) 120%);
+                            background: linear-gradient(90deg, rgba(101, 48, 154, 0.33) 0%, rgba(101, 48, 154, 1) 66%, rgba(255, 255, 255, 1) 120%);
                             border-radius: 1rem;
                             width: 100%;
                         }
@@ -502,7 +543,7 @@ $tag-background: #0f142f;
                     .language:nth-child(3) {
                         .skill_bar {
                             background-color: grey;
-                            background: linear-gradient(90deg,rgba(128, 128, 128, 0.3) 0%, rgba(128, 128, 128, 0.58) 100%);
+                            background: linear-gradient(90deg, rgba(128, 128, 128, 0.3) 0%, rgba(128, 128, 128, 0.58) 100%);
                             width: 32%;
                         }
 
@@ -516,7 +557,7 @@ $tag-background: #0f142f;
                     .language:nth-child(4) {
                         .skill_bar {
                             background-color: #e06c19;
-                            background: linear-gradient(90deg,rgba(224, 108, 25, 0.33) 0%, rgba(224, 108, 25, 0.77) 66%);
+                            background: linear-gradient(90deg, rgba(224, 108, 25, 0.33) 0%, rgba(224, 108, 25, 0.77) 66%);
                             width: 60%;
                         }
 
