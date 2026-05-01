@@ -185,30 +185,10 @@ function YouTubeMusic() {
 function ProgrammingLanguages() {
     return (
         <div className="card languages_wrapper">
-            <header>
-                <div className="col_1">
-                    <h3 className="languages_header"><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
-                </div>
-
-                <div className="col_2">
-                    <div className="language">
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Learning</p><p>Proficient</p><p>Master</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
+            <h3><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
+            
             <div className="languages">
-                <div className="col_1">
+                <div className="col">
                     <div className="language">
                         <h4>Java</h4>
                         <div className="bar_outline">
@@ -270,7 +250,7 @@ function ProgrammingLanguages() {
                     </div>
                 </div>
 
-                <div className="col_2">
+                <div className="col">
                     <div className="language">
                         <h4>HTML</h4>
                         <div className="bar_outline">
@@ -329,6 +309,22 @@ function ProgrammingLanguages() {
                         <div className="skill_key">
                             <p>Learning</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="legend">
+                <div className="language">
+                    <div className="bar_outline">
+                        <div className="skill_bar"></div>
+                        
+                        <div className="skill_markers">
+                            <div className="marker"></div><div className="marker"></div><div className="marker"></div>
+                        </div>
+                    </div>
+
+                    <div className="skill_key">
+                        <p>Learning</p><p>Proficient</p><p>Master</p>
                     </div>
                 </div>
             </div>

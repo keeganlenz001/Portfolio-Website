@@ -323,50 +323,13 @@ $tag-background: #0f142f;
             grid-column: span 6;
             grid-row: span 6;
 
-            header {
-                margin: 0rem 2rem 0rem 1.25rem;
-
-                display: flex;
-                justify-content: space-between;
-
-                .languages_header {
-                    margin: 1rem 0rem 0rem 0rem;
-                }
-
-                .language {
-                    margin: 1rem 0rem 0rem 0rem;
-
-                    .skill_key {
-                        margin-left: calc(33% - 6px);
-                        width: 67%;
-
-                        display: flex;
-                        justify-content: space-between;
-
-                        p:first-child {
-                            transform: translateX(-50%);
-                        }
-
-                        p:last-child {
-                            transform: translateX(50%);
-                        }
-                    }
-
-                    .skill_markers {
-                        .marker:last-child {
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-
             .bar_outline {
                 // background-color: black;
                 background-color: $page-background;
                 // border: 1px solid $base-color;
                 border-radius: 1rem;
                 // border-right: 1px solid white;
-                margin-top: 0.5rem;
+                margin-top: 0.25rem;
                 position: relative;
 
                 width: 100%;
@@ -411,7 +374,7 @@ $tag-background: #0f142f;
                 width: 100%;
             }
 
-            .col_1, .col_2 {
+            .col {
                 margin-right: 1rem;
                 width: 50%;
 
@@ -420,13 +383,14 @@ $tag-background: #0f142f;
                 justify-content: space-between;
             }
 
-            .col_2 {
+            .col:last-child {
                 margin-left: 1rem;
+                margin-right: 0;
             }
 
             .languages {
                 margin: 1rem 2rem 1rem 1.25rem;
-                height: calc(100% - 6rem);
+                height: calc(100% - 9rem);
 
                 display: flex;
                 justify-content: space-between;
@@ -455,7 +419,7 @@ $tag-background: #0f142f;
                     }
                 }
 
-                .col_1 {
+                .col {
                     .language:nth-child(1) {
                         .skill_bar {
                             background-color: #f08f1a;
@@ -513,15 +477,19 @@ $tag-background: #0f142f;
                     }
                 }
 
-                .col_2 {
-                    margin-left: 1rem;
-
+                .col:nth-child(2) {
                     .language:nth-child(1) {
                         .skill_bar {
                             background-color: #e54c22;
                             background: linear-gradient(90deg, rgba(229, 76, 34, 0.33) 0%, rgba(229, 76, 34, 1) 66%, rgba(255, 255, 255, 1) 120%);
                             border-radius: 1rem;
                             width: 100%;
+                        }
+
+                        .skill_key {
+                            p {
+                                margin-left: 100%;
+                            }
                         }
                     }
 
@@ -565,6 +533,47 @@ $tag-background: #0f142f;
                             p {
                                 margin-left: 60%;
                             }
+                        }
+                    }
+                }
+            }
+
+            .legend {
+                background-color: green;
+                position: relative;
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .language {
+                    // left: calc(50% - 1rem);
+                    left: 50%;
+                    margin: 4rem 0rem 1rem -1rem;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    width: 50%;
+
+                    .skill_key {
+                        margin-left: calc(33% - 6px);
+                        width: 67%;
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        p:first-child {
+                            transform: translateX(-50%);
+                        }
+
+                        p:last-child {
+                            transform: translateX(50%);
+                        }
+                    }
+
+                    .skill_markers {
+                        .marker:last-child {
+                            opacity: 1;
                         }
                     }
                 }
