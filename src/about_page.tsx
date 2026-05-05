@@ -7,6 +7,14 @@ import { useState } from 'react';
 
 import { songs } from "./assets/about_page/songs/songs";
 
+const langModules = import.meta.glob("./assets/about_page/languages/*.png", { eager: true });
+const langs = Object.fromEntries(
+    Object.entries(langModules).map(([path, mod]) => [
+        path.replace("./assets/about_page/languages/", "").replace(".png", "").toLowerCase(),
+        (mod as { default: string }).default
+    ])
+);
+
 function AboutPage() {
     return (
         <div className="about_page">
@@ -183,153 +191,67 @@ function YouTubeMusic() {
 }
 
 function ProgrammingLanguages() {
+    const languages = [
+        { name: "Java", logo: langs.java, level: 3.6, label: "Proficient" },
+        { name: "TypeScript", logo: langs.typescript, level: 3.4, label: "Proficient" },
+        { name: "Lua", logo: langs.lua, level: 3.8, label: "Proficient" },
+        { name: "Python", logo: langs.python, level: 2.5, label: "Intermediate" },
+        { name: "HTML", logo: langs.html, level: 4, label: "Master" },
+        { name: "CSS", logo: langs.css, level: 4, label: "Master" },
+        { name: "JSON", logo: langs.json, level: 1.5, label: "Learning" },
+        { name: "SQL", logo: langs.sql,level: 2, label: "Intermediate" },
+    ];
+
+    console.log(langs);
+
+    const left = languages.slice(0, 4);
+    const right = languages.slice(4);
+
+    const renderLanguage = (lang: any, index: number) => (
+        <div key={index} className="language">
+            <img src={`${lang.logo}`}></img>
+
+            <div className="main_section">
+                <h4>{lang.name}</h4>
+
+                <div className="skill_segments">
+                    {[...Array(4)].map((_, i) => {
+                        const isFull = i + 1 <= Math.floor(lang.level);
+                        const isPartial = i < lang.level && i + 1 > lang.level;
+
+                        return (
+                            <div
+                                key={i}
+                                className={`segment ${
+                                    isFull ? "filled" : isPartial ? "partial" : ""
+                                }`}
+                                style={
+                                    isPartial
+                                        ? { "--fill": `${(lang.level % 1) * 100}%` } as React.CSSProperties
+                                        : {}
+                                }
+                            />
+                        );
+                    })}
+                </div>
+            </div>
+
+            <div className="skill_key">
+                <p>{lang.label}</p>
+            </div>
+        </div>
+    );
+
     return (
         <div className="card languages_wrapper">
             <h3><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
-            
+
             <div className="languages">
-                <div className="col">
-                    <div className="language">
-                        <h4>Java</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Proficient</p>
-                        </div>
-                    </div>
-
-                    <div className="language">
-                        <h4>TypeScript</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Proficient</p>
-                        </div>
-                    </div>
-
-                    <div className="language">
-                        <h4>Lua</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Proficient</p>
-                        </div>
-                    </div>
-
-                    <div className="language">
-                        <h4>Python</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Proficient</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col">
-                    <div className="language">
-                        <h4>HTML</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Master</p>
-                        </div>
-                    </div>
-
-                    <div className="language">
-                        <h4>CSS / SCSS</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Master</p>
-                        </div>
-                    </div>
-
-                    <div className="language">
-                        <h4>JSON</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-                            
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Learning</p>
-                        </div>
-                    </div>
-
-                    <div className="language">
-                        <h4>SQL</h4>
-                        <div className="bar_outline">
-                            <div className="skill_bar"></div>
-
-                            <div className="skill_markers">
-                                <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                            </div>
-                        </div>
-
-                        <div className="skill_key">
-                            <p>Learning</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="legend">
-                <div className="language">
-                    <div className="bar_outline">
-                        <div className="skill_bar"></div>
-                        
-                        <div className="skill_markers">
-                            <div className="marker"></div><div className="marker"></div><div className="marker"></div>
-                        </div>
-                    </div>
-
-                    <div className="skill_key">
-                        <p>Learning</p><p>Proficient</p><p>Master</p>
-                    </div>
-                </div>
+                <div className="col">{left.map(renderLanguage)}</div>
+                <div className="col">{right.map(renderLanguage)}</div>
             </div>
         </div>
-    )
+    );
 }
 
 function GithubCommits() {
