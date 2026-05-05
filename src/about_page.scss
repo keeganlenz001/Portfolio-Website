@@ -324,7 +324,7 @@ $tag-background: #0f142f;
             grid-row: span 6;
 
             .languages {
-                margin: 1rem 2rem 1rem 1.25rem;
+                margin: 1rem 0.5rem 1rem 1.25rem;
                 height: calc(100% - 6rem);
 
                 display: flex;
@@ -332,7 +332,6 @@ $tag-background: #0f142f;
                 gap: 1rem;
 
                 .col {
-                    margin-right: 1rem;
                     width: 50%;
 
                     display: flex;
@@ -341,24 +340,32 @@ $tag-background: #0f142f;
 
                     .language {
                         display: flex;
-                        // flex-direction: column;
-                        // gap: 0.25rem;
-                        // position: relative;
+                        align-items: stretch;
+                        gap: 1rem;
 
-                        img {
-                            height: 50px;
-                            width: 50px;
+                        .logo {
+                            flex: 0 0 auto;
+                            display: flex;
+                            align-items: center;
+                            height: 100%;
+
+                            img {
+                                height: 1.5rem;
+                                // height: 1%;
+                                width: auto;
+                                object-fit: contain;
+                            }
                         }
 
                         .main_section {
-                            width: 80%;
+                            flex: 1;
                             display: flex;
                             flex-direction: column;
                             position: relative;
 
                             .skill_segments {
                                 margin-top: 0.5rem;
-                                gap: 4px;
+                                gap: 1px;
                                 height: 0.5rem;
                                 display: flex;
                             }
@@ -370,16 +377,44 @@ $tag-background: #0f142f;
                         }
 
                         .skill_key {
-                            font-size: 0.67rem;
-                            margin-top: 0.25rem;
-                            width: 100%;
+                            width: 4.5rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            p {
+                                border: 1px solid $card-border;
+                                border-radius: 4px;
+                                color: $card-border;
+                                filter: brightness(1.5);
+                                font-size: 0.67rem;
+                                padding: 0.25rem;
+
+                                height: fit-content;
+                            }
+
+                            .master {
+                                filter: brightness(1.5) hue-rotate(140deg)
+                            }
+
+                            .advanced {
+                                filter: brightness(1.5) hue-rotate(30deg)
+                            }
+
+                            .proficient {
+                                filter: brightness(1.5) hue-rotate(330deg)
+                            }
+
+                            .learning {
+                                filter: brightness(1.5) hue-rotate(220deg)
+                            }
                         }
                     }
-                }
 
-                .col:last-child {
-                    margin-left: 1rem;
-                    margin-right: 0;
+                    .language:hover .segment.filled,
+                    .language:hover .segment.partial::before {
+                        filter: brightness(1.5);
+                    }
                 }
             }
 
@@ -402,14 +437,6 @@ $tag-background: #0f142f;
                 height: 100%;
                 width: var(--fill);
             }
-
-            .language:hover .segment.filled,
-            .language:hover .segment.partial::before {
-                filter: brightness(1.5);
-            }
-
-            /* LABEL */
-            .skill_key {}
         }
 
         .github_commits_wrapper {

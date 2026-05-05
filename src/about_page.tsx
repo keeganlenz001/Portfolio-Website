@@ -3,7 +3,7 @@ import './about_page.scss'
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Circle, useMap, useMapEvents } from "react-leaflet";
 import type { LatLngTuple } from "leaflet";
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { songs } from "./assets/about_page/songs/songs";
 
@@ -192,24 +192,34 @@ function YouTubeMusic() {
 
 function ProgrammingLanguages() {
     const languages = [
-        { name: "Java", logo: langs.java, level: 3.6, label: "Proficient" },
-        { name: "TypeScript", logo: langs.typescript, level: 3.4, label: "Proficient" },
-        { name: "Lua", logo: langs.lua, level: 3.8, label: "Proficient" },
-        { name: "Python", logo: langs.python, level: 2.5, label: "Intermediate" },
-        { name: "HTML", logo: langs.html, level: 4, label: "Master" },
-        { name: "CSS", logo: langs.css, level: 4, label: "Master" },
-        { name: "JSON", logo: langs.json, level: 1.5, label: "Learning" },
-        { name: "SQL", logo: langs.sql,level: 2, label: "Intermediate" },
+        { name: "Java", logo: langs.java, level: 3.4, label: "Advanced", class: "advanced" },
+        { name: "TypeScript", logo: langs.typescript, level: 3, label: "Proficient", class: "proficient" },
+        { name: "Lua", logo: langs.lua, level: 3.8, label: "Advanced", class: "advanced" },
+        { name: "Python", logo: langs.python, level: 2.6, label: "Intermediate", class: "intermediate"},
+        { name: "HTML", logo: langs.html, level: 4, label: "Master", class: "master" },
+        { name: "CSS", logo: langs.css, level: 4, label: "Master", class: "master" },
+        { name: "JSON", logo: langs.json, level: 1.5, label: "Learning", class: "learning" },
+        { name: "SQL", logo: langs.sql,level: 2, label: "Intermediate", class: "intermediate" },
     ];
-
-    console.log(langs);
 
     const left = languages.slice(0, 4);
     const right = languages.slice(4);
 
+    const keyRef = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            const els = keyRef.current.filter(Boolean);
+            const maxWidth = Math.max(...els.map(el => el.offsetWidth));
+            els.forEach(el => (el.style.width = `${maxWidth}px`));
+        });
+    }, []);
+
     const renderLanguage = (lang: any, index: number) => (
         <div key={index} className="language">
-            <img src={`${lang.logo}`}></img>
+            <div className="logo">
+                <img src={`${lang.logo}`}></img>
+            </div>
 
             <div className="main_section">
                 <h4>{lang.name}</h4>
@@ -236,8 +246,8 @@ function ProgrammingLanguages() {
                 </div>
             </div>
 
-            <div className="skill_key">
-                <p>{lang.label}</p>
+            <div className="skill_key" ref={el => { if (el) keyRef.current[index] = el; }}>
+                <p className={`${lang.class}`}>{lang.label}</p>
             </div>
         </div>
     );
@@ -247,8 +257,8 @@ function ProgrammingLanguages() {
             <h3><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
 
             <div className="languages">
-                <div className="col">{left.map(renderLanguage)}</div>
-                <div className="col">{right.map(renderLanguage)}</div>
+                <div className="col">{left.map((lang, i) => renderLanguage(lang, i))}</div>
+                <div className="col">{right.map((lang, i) => renderLanguage(lang, i + left.length))}</div>
             </div>
         </div>
     );
