@@ -127,6 +127,23 @@ $tag-background: #0f142f;
 
             grid-column: span 8;
             grid-row: span 4;
+
+            .frameworks {
+                display: flex;
+                gap: 1rem;
+
+                .framework {
+                    .header {
+                        display: flex;
+
+                        .logo {
+                            img {
+                                width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .call_to_action_wrapper {
@@ -329,7 +346,7 @@ $tag-background: #0f142f;
 
                 display: flex;
                 justify-content: space-between;
-                gap: 1rem;
+                gap: 2rem;
 
                 .col {
                     width: 50%;
@@ -377,36 +394,38 @@ $tag-background: #0f142f;
                         }
 
                         .skill_key {
-                            width: 4.5rem;
                             display: flex;
                             align-items: center;
                             justify-content: center;
 
                             p {
-                                border: 1px solid $card-border;
+                                background-color: rgba($card-background, 0.5);
+                                border: 1px solid rgba($card-border, 0.5);
                                 border-radius: 4px;
                                 color: $card-border;
-                                filter: brightness(1.5);
+                                filter: brightness(2);
                                 font-size: 0.67rem;
-                                padding: 0.25rem;
+                                padding: 0.25rem 0rem;
+                                text-align: center;
 
+                                width: 4.5rem;
                                 height: fit-content;
                             }
 
-                            .master {
-                                filter: brightness(1.5) hue-rotate(140deg)
+                            .expert {
+                                filter: brightness(2) hue-rotate(140deg);
                             }
 
                             .advanced {
-                                filter: brightness(1.5) hue-rotate(30deg)
+                                filter: brightness(2) hue-rotate(30deg)
                             }
 
                             .proficient {
-                                filter: brightness(1.5) hue-rotate(330deg)
+                                filter: brightness(2) hue-rotate(330deg)
                             }
 
                             .learning {
-                                filter: brightness(1.5) hue-rotate(220deg)
+                                filter: brightness(2) hue-rotate(220deg)
                             }
                         }
                     }
@@ -416,6 +435,15 @@ $tag-background: #0f142f;
                         filter: brightness(1.5);
                     }
                 }
+
+                // .col:first-child {
+                //     padding-right: calc(1rem - 2px);
+                //     border-right: 2px solid $card-border;
+                // }
+
+                // .col:last-child {
+                //     padding-left: 1rem;
+                // }
             }
 
             .segment {

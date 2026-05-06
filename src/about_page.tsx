@@ -38,13 +38,13 @@ function MapHeader() {
 function ZoomControls() {
     const [zoom, setZoom] = useState(13);
     const map = useMap();
-    
+
     useMapEvents({
         zoomend: () => {
             setZoom(map.getZoom());
         }
     });
-    
+
     const minZoom = 12; // Default is 0
     const maxZoom = 15; // Default is 18
 
@@ -52,7 +52,7 @@ function ZoomControls() {
     let zoomOutDisabled = false;
     let zoomInClass = "zoom_button zoom_in";
     let zoomOutClass = "zoom_button zoom_out";
-    
+
     if (zoom >= maxZoom) {
         zoomInDisabled = true;
     } else if (zoom <= minZoom) {
@@ -88,9 +88,9 @@ function Location() {
     const center: LatLngTuple = [40.759926, -111.884888];
 
     return (
-        <MapContainer 
-            className="card map_wrapper" 
-            center={center} 
+        <MapContainer
+            className="card map_wrapper"
+            center={center}
             zoom={13}
             zoomControl={false}
             attributionControl={false}
@@ -104,10 +104,10 @@ function Location() {
 
             <ZoomControls></ZoomControls>
 
-            <Circle 
-                center={center} 
-                radius={500} 
-                pathOptions={{ fillColor: "green", color: "red", fillOpacity: 0.5, opacity: 0}}
+            <Circle
+                center={center}
+                radius={500}
+                pathOptions={{ fillColor: "green", color: "red", fillOpacity: 0.5, opacity: 0 }}
             />
             <TileLayer
                 // url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`}
@@ -119,12 +119,46 @@ function Location() {
 }
 
 function StackSkills() {
+    const frameworks = [
+        { name: "One", logo: langs.java},
+        { name: "Two", logo: langs.typescript},
+        { name: "Three", logo: langs.lua},
+        { name: "Four", logo: langs.python},
+    ];
+
+    const renderFramework = (framework: any, index: number) => (
+        <div key={index} className="framework">
+            <div className="header">
+                <div className="logo">
+                    <img src={`${framework.logo}`}></img>
+                </div>
+
+                {/* . */}
+                <h4>{framework.name}</h4>
+
+            </div>
+
+            <div className="description">
+
+                <div className="skill_segments">
+                    
+                </div>
+            </div>
+
+            <div className="footer">
+
+            </div>
+        </div>
+    )
+
     return (
         <div className="card stack_skills_wrapper">
             <h3>
                 <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 256 256"><g fill="currentColor"><path d="m220 169.09l-92 53.65l-92-53.65a8 8 0 0 0-8 13.82l96 56a8 8 0 0 0 8.06 0l96-56a8 8 0 1 0-8.06-13.82"></path><path d="m220 121.09l-92 53.65l-92-53.65a8 8 0 0 0-8 13.82l96 56a8 8 0 0 0 8.06 0l96-56a8 8 0 1 0-8.06-13.82"></path><path d="m28 86.91l96 56a8 8 0 0 0 8.06 0l96-56a8 8 0 0 0 0-13.82l-96-56a8 8 0 0 0-8.06 0l-96 56a8 8 0 0 0 0 13.82"></path></g></svg>
                 &nbsp; Frameworks
             </h3>
+
+            <div className="frameworks">{frameworks.map((framework, i) => renderFramework(framework, i))}</div>
         </div>
     )
 }
@@ -152,7 +186,7 @@ function TypingSpeed() {
             <div className="typing_info">
                 <div className="typing_speed">
                     <p className="typing_speed">117<span className="small">wpm</span></p>
-                </div> 
+                </div>
 
                 <div className="typing_stats">
                     <p><i className="fa wpm_symbol">&#xf2f2;</i> 60s &nbsp; &nbsp;<i className="fa wpm_symbol">&#xf140;</i> 98%</p>
@@ -168,13 +202,13 @@ function YouTubeMusic() {
     return (
         <a className="card youtube_music_wrapper" href={`${song.url}`} target="_blank">
             <h3 className="youtube_header">
-                <svg className="youtube_icon" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 13.5v-7l6 3.5-6 3.5z"/> </svg>
+                <svg className="youtube_icon" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="currentColor"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 13.5v-7l6 3.5-6 3.5z" /> </svg>
             </h3>
 
             <div className="youtube_content">
                 <div className="album_art">
-                    <img 
-                        className = "album_art"
+                    <img
+                        className="album_art"
                         src={`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`}
                         alt={`${song.title} by ${song.artist}`}
                     ></img>
@@ -195,11 +229,11 @@ function ProgrammingLanguages() {
         { name: "Java", logo: langs.java, level: 3.4, label: "Advanced", class: "advanced" },
         { name: "TypeScript", logo: langs.typescript, level: 3, label: "Proficient", class: "proficient" },
         { name: "Lua", logo: langs.lua, level: 3.8, label: "Advanced", class: "advanced" },
-        { name: "Python", logo: langs.python, level: 2.6, label: "Intermediate", class: "intermediate"},
-        { name: "HTML", logo: langs.html, level: 4, label: "Master", class: "master" },
-        { name: "CSS", logo: langs.css, level: 4, label: "Master", class: "master" },
+        { name: "Python", logo: langs.python, level: 2.6, label: "Intermediate", class: "intermediate" },
+        { name: "HTML", logo: langs.html, level: 4, label: "Expert", class: "expert" },
+        { name: "CSS", logo: langs.css, level: 4, label: "Expert", class: "expert" },
         { name: "JSON", logo: langs.json, level: 1.5, label: "Learning", class: "learning" },
-        { name: "SQL", logo: langs.sql,level: 2, label: "Intermediate", class: "intermediate" },
+        { name: "SQL", logo: langs.sql, level: 2, label: "Intermediate", class: "intermediate" },
     ];
 
     const left = languages.slice(0, 4);
@@ -232,9 +266,8 @@ function ProgrammingLanguages() {
                         return (
                             <div
                                 key={i}
-                                className={`segment ${
-                                    isFull ? "filled" : isPartial ? "partial" : ""
-                                }`}
+                                className={`segment ${isFull ? "filled" : isPartial ? "partial" : ""
+                                    }`}
                                 style={
                                     isPartial
                                         ? { "--fill": `${(lang.level % 1) * 100}%` } as React.CSSProperties
