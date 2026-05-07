@@ -15,6 +15,14 @@ const langs = Object.fromEntries(
     ])
 );
 
+const frameModules = import.meta.glob("./assets/about_page/frameworks/*.png", { eager: true });
+const frames = Object.fromEntries(
+    Object.entries(frameModules).map(([path, mod]) => [
+        path.replace("./assets/about_page/frameworks/", "").replace(".png", "").toLowerCase(),
+        (mod as { default: string }).default
+    ])
+);
+
 function AboutPage() {
     return (
         <div className="about_page">
@@ -120,10 +128,10 @@ function Location() {
 
 function StackSkills() {
     const frameworks = [
-        { name: "One", logo: langs.java},
-        { name: "Two", logo: langs.typescript},
-        { name: "Three", logo: langs.lua},
-        { name: "Four", logo: langs.python},
+        { name: "PyTorch", logo: frames.pytorch, class: "ml", tag: "ML Framework", description: "Deep learning framework for building and training neural networks."},
+        { name: "React", logo: frames.react, class: "react", tag: "UI Library", description: "Declarative UI library for building user interfaces."},
+        { name: "Next.js", logo: frames.nextjs, class: "react", tag: "React Framework", description: "Full-stack React framework for production web applications."},
+        { name: "Docker", logo: frames.docker, class: "container", tag: "Container Platform", description: "Containerization platform for building and deploying isolated applications."},
     ];
 
     const renderFramework = (framework: any, index: number) => (
@@ -133,20 +141,28 @@ function StackSkills() {
                     <img src={`${framework.logo}`}></img>
                 </div>
 
-                {/* . */}
-                <h4>{framework.name}</h4>
+                <div className="info">
+                    <h4>{framework.name}</h4>
+                    <p className={`${framework.class}`}>{framework.tag}</p>
+                </div>
 
             </div>
 
             <div className="description">
-
-                <div className="skill_segments">
-                    
-                </div>
+                <p>{framework.description}</p>
             </div>
 
             <div className="footer">
+                <div className="date">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 4V2.5" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> <path d="M17 4V2.5" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="16.5" cy="16.5" r="1.5" stroke="#778899" stroke-width="1.5"></circle> <path d="M21.5 9H16.625H10.75M2 9H5.875" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C20.1752 21.4816 19.3001 21.7706 18 21.8985" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>                </div>
+                    <p>&nbsp;&nbsp;2016</p>
+                <div className="stars">
 
+                </div>
+
+                <div className="language">
+
+                </div>
             </div>
         </div>
     )
