@@ -128,10 +128,10 @@ function Location() {
 
 function StackSkills() {
     const frameworks = [
-        { name: "PyTorch", logo: frames.pytorch, class: "ml", tag: "ML Framework", description: "Deep learning framework for building and training neural networks."},
-        { name: "React", logo: frames.react, class: "react", tag: "UI Library", description: "Declarative UI library for building user interfaces."},
-        { name: "Next.js", logo: frames.nextjs, class: "react", tag: "React Framework", description: "Full-stack React framework for production web applications."},
-        { name: "Docker", logo: frames.docker, class: "container", tag: "Container Platform", description: "Containerization platform for building and deploying isolated applications."},
+        { name: "PyTorch", logo: frames.pytorch, class: "ml", tag: "ML Framework", description: "Deep learning framework for building and training neural networks.", date: "2016", stars: "99.8k", language: "Python"},
+        { name: "React", logo: frames.react, class: "react", tag: "UI Library", description: "Declarative UI library for building user interfaces.", date: "2013", stars: "245k", language: "JavaScript"},
+        { name: "Next.js", logo: frames.nextjs, class: "react", tag: "React Framework", description: "Full-stack React framework for production web applications.", date: "2016", stars: "139k", language: "JavaScript"},
+        { name: "Docker", logo: frames.docker, class: "container", tag: "Container Platform", description: "Containerization platform for building and deploying isolated applications.", date: "2013", stars: "71.5k", language: "Go"},
     ];
 
     const renderFramework = (framework: any, index: number) => (
@@ -154,14 +154,22 @@ function StackSkills() {
 
             <div className="footer">
                 <div className="date">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 4V2.5" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> <path d="M17 4V2.5" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="16.5" cy="16.5" r="1.5" stroke="#778899" stroke-width="1.5"></circle> <path d="M21.5 9H16.625H10.75M2 9H5.875" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C20.1752 21.4816 19.3001 21.7706 18 21.8985" stroke="#778899" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>                </div>
-                    <p>&nbsp;&nbsp;2016</p>
-                <div className="stars">
-
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H10V16H6V12ZM6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    <p>&nbsp;&nbsp;{framework.date}</p>
                 </div>
 
-                <div className="language">
+                <span className="divider"></span>
 
+                <div className="stars">
+                    <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></svg>
+                    <p>&nbsp;{framework.stars}</p>
+                </div>
+
+                <span className="divider"></span>
+
+                <div className="language">
+                    <svg data-component="Octicon" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"></path></svg>
+                    <p>&nbsp;{framework.language}</p>
                 </div>
             </div>
         </div>
