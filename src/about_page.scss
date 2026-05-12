@@ -123,7 +123,7 @@ $tag-background: #0f142f;
             }
         }
 
-        .stack_skills_wrapper {
+        .frameworks_wrapper {
             border-radius: 1vw;
 
             grid-column: span 8;
@@ -151,6 +151,7 @@ $tag-background: #0f142f;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
+                    gap: 0.5rem;
 
                     .header {
                         display: flex;
@@ -188,19 +189,23 @@ $tag-background: #0f142f;
 
                     .description {
                         opacity: 0;
-                        height: 0;
-                        transition: opacity 1s;
-                        transition: height 1s;
+                        // height: fit-content;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: opacity 0.5s 0.1s, max-height 0.2s;
 
                         p {
-                            color: rgba($base-color, 0.5);
+                            color: rgba($base-color, 0.8);
                             font-size: 0.75rem;
                         }
                     }
 
                     .footer {
+                        color: rgba($base-color, 0.8);
+                        fill: rgba($base-color, 0.8);
+
                         display: flex;
-                        justify-content: space-evenly;
+                        justify-content: space-between;
 
                         .date,
                         .stars,
@@ -209,40 +214,24 @@ $tag-background: #0f142f;
                             display: flex;
 
                             svg {
-                                height: 0.75rem;
+                                height: 0.67rem;
                             }
 
                             p {
-                                font-size: 0.75rem;
+                                font-size: 0.67rem;
                                 line-height: 1;
+                            }
+                        }
+
+                        .language {
+                            svg {
+                                transform: scaleX(-1);
                             }
                         }
 
                         .divider {
                             width: 1px;
                             background-color: white;
-                        }
-
-                        .date {
-                            // background-color: red;
-                        }
-
-                        .stars {
-                            // background-color: blue;
-
-                            svg {
-                                fill: white;
-                            }
-                        }
-
-                        .language {
-                            // background-color: green;
-
-                            // justify-content: end;
-                            svg {
-                                fill: white;
-                                transform: scaleX(-1);
-                            }
                         }
                     }
                 }
@@ -252,7 +241,7 @@ $tag-background: #0f142f;
 
                     .description {
                         opacity: 1;
-                        height: fit-content;
+                        max-height: 3rem;
                     }
                 }
             }
