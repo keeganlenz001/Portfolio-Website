@@ -133,7 +133,7 @@ $tag-background: #0f142f;
             flex-direction: column;
 
             .frameworks {
-                margin: 1rem 1.25rem 1rem 1.25rem;
+                margin: 0.5rem 1.25rem 1rem 1.25rem;
 
                 flex: 1;
                 display: flex;
@@ -151,26 +151,41 @@ $tag-background: #0f142f;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    gap: 0.5rem;
+                    gap: 0.25rem;
 
                     .header {
-                        display: flex;
+                        display: grid;
+                        grid-template-columns: auto 1fr;
                         gap: 0.5rem;
 
                         .logo {
+                            position: relative;
+                            aspect-ratio: 1 / 1;
+                            flex-shrink: 0;
+
                             img {
-                                width: 3rem;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
                             }
                         }
 
                         .info {
+                            display: flex;
+                            flex-direction: column;
+                            flex: 1;
+                            gap: 0.25rem;
+
                             p {
                                 background-color: rgba($card-background, 0.75);
                                 border-radius: 0.5rem;
                                 color: $card-border;
                                 font-size: 0.67rem;
-                                margin-top: 0.25rem;
                                 padding: 0.25rem 0.5rem;
+
+                                width: fit-content;
                             }
 
                             .react {
@@ -189,7 +204,6 @@ $tag-background: #0f142f;
 
                     .description {
                         opacity: 0;
-                        // height: fit-content;
                         max-height: 0;
                         overflow: hidden;
                         transition: opacity 0.5s 0.1s, max-height 0.2s;
@@ -210,7 +224,6 @@ $tag-background: #0f142f;
                         .date,
                         .stars,
                         .language {
-                            // flex: 1;
                             display: flex;
 
                             svg {
@@ -275,8 +288,6 @@ $tag-background: #0f142f;
             grid-row: span 3;
 
             .background_typing_speed {
-
-                // position: relative;
                 background-color: red;
                 line-height: 0.8;
 
@@ -293,7 +304,6 @@ $tag-background: #0f142f;
             }
 
             .typing_info {
-                // background-color: red;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 0.5rem;
@@ -328,7 +338,6 @@ $tag-background: #0f142f;
                     .wpm_symbol {
                         font-size: 1rem;
                         color: $card-border;
-                        // color: gray;
                     }
                 }
             }
@@ -371,7 +380,6 @@ $tag-background: #0f142f;
             }
 
             .youtube_content {
-                // background-color: red;
                 padding: 1.5rem 1rem 1.5rem 1.5rem;
                 width: 100%;
 
@@ -391,7 +399,6 @@ $tag-background: #0f142f;
                 }
 
                 .song_info {
-                    // background-color: red;
                     height: 100%;
                     font-weight: 500;
                     flex: 1;
@@ -447,7 +454,8 @@ $tag-background: #0f142f;
 
                 display: flex;
                 justify-content: space-between;
-                gap: 2rem;
+                align-items: stretch;
+                gap: 1rem;
 
                 .col {
                     width: 50%;
@@ -458,20 +466,19 @@ $tag-background: #0f142f;
 
                     .language {
                         display: flex;
-                        align-items: stretch;
                         gap: 1rem;
 
                         .logo {
-                            flex: 0 0 auto;
-                            display: flex;
-                            align-items: center;
-                            height: 100%;
+                            position: relative;
+                            aspect-ratio: 1 / 1;
+                            flex-shrink: 0;
 
                             img {
-                                height: 1.5rem;
-                                // height: 1%;
-                                width: auto;
-                                object-fit: contain;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
                             }
                         }
 
@@ -479,18 +486,36 @@ $tag-background: #0f142f;
                             flex: 1;
                             display: flex;
                             flex-direction: column;
-                            position: relative;
+                            gap: 0.5rem;
 
                             .skill_segments {
-                                margin-top: 0.5rem;
                                 gap: 1px;
                                 height: 0.5rem;
                                 display: flex;
-                            }
 
-                            .filled,
-                            .partial::before {
-                                background-color: $card-border;
+                                .segment {
+                                    flex: 1;
+                                    border-radius: 1rem;
+                                    background-color: $page-background;
+                                    position: relative;
+                                    overflow: hidden;
+                                    transition: 0.25s ease;
+                                }
+
+                                .segment.filled {
+                                    box-shadow: 0 0 6px $card-border;
+                                }
+
+                                .segment.partial::before {
+                                    content: "";
+                                    position: absolute;
+                                    height: 100%;
+                                    width: var(--fill);
+                                }
+
+                                .filled, .partial::before {
+                                    background-color: $card-border;
+                                }
                             }
                         }
 
@@ -500,16 +525,17 @@ $tag-background: #0f142f;
                             justify-content: center;
 
                             p {
+                                flex: 1;
+
                                 background-color: rgba($card-background, 0.5);
                                 border: 1px solid rgba($card-border, 0.5);
                                 border-radius: 4px;
                                 color: $card-border;
                                 filter: brightness(2);
                                 font-size: 0.67rem;
-                                padding: 0.25rem 0rem;
+                                padding: 0.25rem 0.25rem;
                                 text-align: center;
 
-                                width: 4.5rem;
                                 height: fit-content;
                             }
 
@@ -531,40 +557,12 @@ $tag-background: #0f142f;
                         }
                     }
 
-                    .language:hover .segment.filled,
-                    .language:hover .segment.partial::before {
-                        filter: brightness(1.5);
+                    .language:hover {
+                        .segment.filled, .segment.partial {
+                            filter: brightness(1.5);
+                        }
                     }
                 }
-
-                // .col:first-child {
-                //     padding-right: calc(1rem - 2px);
-                //     border-right: 2px solid $card-border;
-                // }
-
-                // .col:last-child {
-                //     padding-left: 1rem;
-                // }
-            }
-
-            .segment {
-                flex: 1;
-                border-radius: 1rem;
-                background-color: $page-background;
-                position: relative;
-                overflow: hidden;
-                transition: 0.25s ease;
-            }
-
-            .segment.filled {
-                box-shadow: 0 0 6px $card-border;
-            }
-
-            .segment.partial::before {
-                content: "";
-                position: absolute;
-                height: 100%;
-                width: var(--fill);
             }
         }
 
