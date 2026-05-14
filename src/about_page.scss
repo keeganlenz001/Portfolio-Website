@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:list';
+
 $base-color: #f7f7f9;
 // $page-background: #0f0f2f;
 $page-background: #0a0b20;
@@ -10,6 +13,13 @@ $card-hover-background: lighten($card-background, 5%);
 $card-border: lighten($card-background, 35%); // #4444c5
 
 $tag-background: #0f142f;
+
+
+$frameworks: (
+    'react': (330deg, 2.5),
+    'ml': (30deg, 2.5),
+    'container': (290deg, 2.5),
+);
 
 .about_page {
     background-color: $page-background;
@@ -140,12 +150,12 @@ $tag-background: #0f142f;
                 gap: 0.5rem;
 
                 .framework {
-                    border: 1px solid rgba($card-border, 0.75);
+                    position: relative;
+                    z-index: 1;
+
                     border-radius: 1rem;
                     padding: 0.5rem;
                     height: fit-content;
-
-                    transition: background-color 0.2s;
 
                     flex: 1;
                     display: flex;
@@ -186,18 +196,6 @@ $tag-background: #0f142f;
                                 padding: 0.25rem 0.5rem;
 
                                 width: fit-content;
-                            }
-
-                            .react {
-                                filter: brightness(2) hue-rotate(330deg);
-                            }
-
-                            .ml {
-                                filter: brightness(2.5) hue-rotate(30deg)
-                            }
-
-                            .container {
-                                filter: brightness(2.5) hue-rotate(290deg)
                             }
                         }
                     }
@@ -250,11 +248,52 @@ $tag-background: #0f142f;
                 }
 
                 .framework:hover {
-                    background-color: $card-hover-background;
-
                     .description {
                         opacity: 1;
                         max-height: 3rem;
+                    }
+                }
+
+                @each $name, $values in $frameworks {
+                    $hue: list.nth($values, 1);
+                    $brightness: list.nth($values, 2);
+
+                    .#{$name} {
+                        background:
+                            linear-gradient(rgba(adjust-color($card-background, $hue: $hue), 0.67), $card-background) padding-box,
+                            linear-gradient(to bottom right, adjust-color($card-border, $hue: $hue), $card-border) border-box;
+                        border: 1px solid transparent;
+                        border-radius: 1rem;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+
+                            top: -1px;
+                            right: -1px;
+                            bottom: -1px;
+                            left: -1px;
+
+                            border-radius: inherit;
+                            border: 1px solid transparent;
+
+                            z-index: -1;
+
+                            background:
+                                linear-gradient(rgba(adjust-color($card-background, $hue: $hue), 0.33), $card-background) padding-box,
+                                linear-gradient(to bottom right, adjust-color($card-border, $hue: $hue), $card-border) border-box;
+
+                            opacity: 0;
+                            transition: opacity 0.5s;
+                        }
+
+                        &:hover::before {
+                            opacity: 1;
+                        }
+
+                        .header .info p {
+                            filter: brightness($brightness) hue-rotate(#{$hue});
+                        }
                     }
                 }
             }
@@ -513,7 +552,8 @@ $tag-background: #0f142f;
                                     width: var(--fill);
                                 }
 
-                                .filled, .partial::before {
+                                .filled,
+                                .partial::before {
                                     background-color: $card-border;
                                 }
                             }
@@ -558,7 +598,9 @@ $tag-background: #0f142f;
                     }
 
                     .language:hover {
-                        .segment.filled, .segment.partial {
+
+                        .segment.filled,
+                        .segment.partial {
                             filter: brightness(1.5);
                         }
                     }

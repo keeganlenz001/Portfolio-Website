@@ -135,7 +135,7 @@ function Frameworks() {
     ];
 
     const renderFramework = (framework: any, index: number) => (
-        <div key={index} className="framework">
+        <div key={index} className={`framework ${framework.class}`}>
             <div className="header">
                 <div className="logo">
                     <img src={`${framework.logo}`}></img>
@@ -143,7 +143,7 @@ function Frameworks() {
 
                 <div className="info">
                     <h4>{framework.name}</h4>
-                    <p className={`${framework.class}`}>{framework.tag}</p>
+                    <p>{framework.tag}</p>
                 </div>
 
             </div>
