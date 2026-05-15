@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'sass:map';
 @use 'sass:list';
 
@@ -6,19 +7,19 @@ $base-color: #f7f7f9;
 $page-background: #0a0b20;
 
 // $card-background: #151542;
-$card-background: lighten($page-background, 9%);
+$card-background: color.adjust($page-background, $lightness: 9%);
 // $card-hover-background: #1a1a51;
 $card-hover-background: #1b1b55;
-$card-hover-background: lighten($card-background, 5%);
-$card-border: lighten($card-background, 35%); // #4444c5
+$card-hover-background: color.adjust($card-background, $lightness: 5%);
+$card-border: color.adjust($card-background, $lightness: 35%); // #4444c5
 
 $tag-background: #0f142f;
 
 
 $frameworks: (
-    'react': (330deg, 2.5),
-    'ml': (30deg, 2.5),
-    'container': (290deg, 2.5),
+    'react': (330deg),
+    'ml': (30deg),
+    'container': (290deg),
 );
 
 .about_page {
@@ -142,6 +143,34 @@ $frameworks: (
             display: flex;
             flex-direction: column;
 
+            >.header {
+                margin: 1rem 0rem 0rem 1.25rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                h3 {
+                    margin: 0;
+                }
+
+                .subheader {
+                    font-size: 0.75rem;
+
+                    display: flex;
+                    align-items: end;
+
+                    p {
+                        color: rgba($base-color, 0.75);
+                        line-height: 0.8;
+                    }
+
+                    svg {
+                        fill: rgba($base-color, 0.75);
+                        height: 1rem;
+                    }
+                }
+            }
+
             .frameworks {
                 margin: 0.5rem 1.25rem 1rem 1.25rem;
 
@@ -161,7 +190,7 @@ $frameworks: (
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    gap: 0.25rem;
+                    gap: 0.5rem;
 
                     .header {
                         display: grid;
@@ -189,9 +218,9 @@ $frameworks: (
                             gap: 0.25rem;
 
                             p {
-                                background-color: rgba($card-background, 0.75);
+                                background-color: color.adjust($card-background, $lightness: 25%);
                                 border-radius: 0.5rem;
-                                color: $card-border;
+                                color: color.adjust($card-border, $lightness: 25%);
                                 font-size: 0.67rem;
                                 padding: 0.25rem 0.5rem;
 
@@ -219,9 +248,7 @@ $frameworks: (
                         display: flex;
                         justify-content: space-between;
 
-                        .date,
-                        .stars,
-                        .language {
+                        .date, .stars, .language {
                             display: flex;
 
                             svg {
@@ -256,12 +283,11 @@ $frameworks: (
 
                 @each $name, $values in $frameworks {
                     $hue: list.nth($values, 1);
-                    $brightness: list.nth($values, 2);
 
                     .#{$name} {
                         background:
-                            linear-gradient(rgba(adjust-color($card-background, $hue: $hue), 0.67), $card-background) padding-box,
-                            linear-gradient(to bottom right, adjust-color($card-border, $hue: $hue), $card-border) border-box;
+                            linear-gradient(rgba(color.adjust($card-background, $hue: $hue), 0.67), $card-background) padding-box,
+                            linear-gradient(to bottom right, color.adjust($card-border, $hue: $hue), $card-border) border-box;
                         border: 1px solid transparent;
                         border-radius: 1rem;
 
@@ -280,8 +306,8 @@ $frameworks: (
                             z-index: -1;
 
                             background:
-                                linear-gradient(rgba(adjust-color($card-background, $hue: $hue), 0.33), $card-background) padding-box,
-                                linear-gradient(to bottom right, adjust-color($card-border, $hue: $hue), $card-border) border-box;
+                                linear-gradient(rgba(color.adjust($card-background, $hue: $hue), 0.33), $card-background) padding-box,
+                                linear-gradient(to bottom right, color.adjust($card-border, $hue: $hue), $card-border) border-box;
 
                             opacity: 0;
                             transition: opacity 0.5s;
@@ -292,9 +318,25 @@ $frameworks: (
                         }
 
                         .header .info p {
-                            filter: brightness($brightness) hue-rotate(#{$hue});
+                            filter: hue-rotate(#{$hue});
                         }
                     }
+                }
+            }
+
+            .footnote {
+                margin: 0rem 1.25rem 0.5rem 1.25rem;
+                display: flex;
+                justify-content: center;
+
+                p {
+                    color: rgba($base-color, 0.75);
+                    font-size: 0.75rem;
+                }
+
+                svg {
+                    stroke: rgba($base-color, 0.75);
+                    height: 1rem;
                 }
             }
         }
