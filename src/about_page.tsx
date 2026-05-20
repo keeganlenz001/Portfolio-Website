@@ -185,7 +185,7 @@ function Frameworks() {
                 </h3>
 
                 <div className="subheader">
-                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1rem" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24" x="0"/></g><g><g><polygon points="19,9 20.25,6.25 23,5 20.25,3.75 19,1 17.75,3.75 15,5 17.75,6.25"/><polygon points="19,15 17.75,17.75 15,19 17.75,20.25 19,23 20.25,20.25 23,19 20.25,17.75"/><path d="M11.5,9.5L9,4L6.5,9.5L1,12l5.5,2.5L9,20l2.5-5.5L17,12L11.5,9.5z M9.99,12.99L9,15.17l-0.99-2.18L5.83,12l2.18-0.99 L9,8.83l0.99,2.18L12.17,12L9.99,12.99z"/></g></g></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1rem" viewBox="0 0 24 24" width="24px"><g><rect fill="none" height="24" width="24" x="0" /></g><g><g><polygon points="19,9 20.25,6.25 23,5 20.25,3.75 19,1 17.75,3.75 15,5 17.75,6.25" /><polygon points="19,15 17.75,17.75 15,19 17.75,20.25 19,23 20.25,20.25 23,19 20.25,17.75" /><path d="M11.5,9.5L9,4L6.5,9.5L1,12l5.5,2.5L9,20l2.5-5.5L17,12L11.5,9.5z M9.99,12.99L9,15.17l-0.99-2.18L5.83,12l2.18-0.99 L9,8.83l0.99,2.18L12.17,12L9.99,12.99z" /></g></g></svg>
                     <p>&nbsp;These are just a few of the frameworks I'm most familiar with</p>
                 </div>
             </div>
@@ -193,7 +193,7 @@ function Frameworks() {
             <div className="frameworks">{frameworks.map((framework, i) => renderFramework(framework, i))}</div>
 
             <div className="footnote">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 2.18a9.93 9.93 0 0 1 3.8 0"/><path d="M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7"/><path d="M21.82 10.1a9.93 9.93 0 0 1 0 3.8"/><path d="M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69"/><path d="M13.9 21.82a9.94 9.94 0 0 1-3.8 0"/><path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7"/><path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8"/><path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69"/><circle cx="12" cy="12" r="1"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 2.18a9.93 9.93 0 0 1 3.8 0" /><path d="M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7" /><path d="M21.82 10.1a9.93 9.93 0 0 1 0 3.8" /><path d="M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69" /><path d="M13.9 21.82a9.94 9.94 0 0 1-3.8 0" /><path d="M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7" /><path d="M2.18 13.9a9.93 9.93 0 0 1 0-3.8" /><path d="M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69" /><circle cx="12" cy="12" r="1" /></svg>
                 <p>&nbsp;Always Curious.&nbsp;&nbsp;Always Building.&nbsp;&nbsp;Always Learning.</p>
             </div>
         </div>
@@ -324,7 +324,7 @@ function ProgrammingLanguages() {
 
     return (
         <div className="card languages_wrapper">
-            <h3><i className="fa">&#xf121;</i>&nbsp; Languages</h3>
+            <h3><i className="fa">&#xf121;</i>&nbsp; Featured Languages</h3>
 
             <div className="languages">
                 <div className="col">{left.map((lang, i) => renderLanguage(lang, i))}</div>
@@ -335,9 +335,43 @@ function ProgrammingLanguages() {
 }
 
 function GithubCommits() {
+    const languages = [
+        { name: "Python", percentage: 22.06, class: "python" },
+        { name: "Lua", percentage: 14.23, class: "lua" },
+        { name: "JavaScript", percentage: 6.40, class: "javascript" }
+    ];
+
+    const renderLanguage = (lang: any, index: number) => (
+        <div key={index} className={`language ${lang.class}`}>
+            <div className={"language_name"}>
+                <p>{lang.name}</p>
+            </div>
+
+            <div className="language_usage">
+                <p>{lang.percentage}%</p>
+            </div>
+        </div>
+    );
+
     return (
         <div className="card github_commits_wrapper">
             <h3><i className="fa">&#xf09b; </i>&nbsp; Github Activity</h3>
+
+            <div className="stats">
+                <div className="contributions">
+
+                </div>
+
+                <div className="repositories">
+
+                </div>
+
+                <div className="language_usages">
+                    <h4>Integrated Languages</h4>
+
+                    <div className="languages">{languages.map((lang, i) => renderLanguage(lang, i))}</div>
+                </div>
+            </div>
         </div>
     )
 }

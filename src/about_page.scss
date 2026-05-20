@@ -142,9 +142,10 @@ $frameworks: (
 
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
 
             >.header {
-                margin: 1rem 0rem 0rem 1.25rem;
+                margin: 1rem 1.25rem 0rem 1.25rem;
                 display: flex;
                 align-items: center;
                 gap: 1rem;
@@ -172,7 +173,7 @@ $frameworks: (
             }
 
             .frameworks {
-                margin: 0.5rem 1.25rem 1rem 1.25rem;
+                margin: 0rem 1.25rem 0rem 1.25rem;
 
                 flex: 1;
                 display: flex;
@@ -325,7 +326,7 @@ $frameworks: (
             }
 
             .footnote {
-                margin: 0rem 1.25rem 0.5rem 1.25rem;
+                margin: 0rem 1.25rem 1rem 1.25rem;
                 display: flex;
                 justify-content: center;
 
@@ -655,6 +656,52 @@ $frameworks: (
 
             grid-column: span 6;
             grid-row: span 5;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .stats {
+                margin: 0rem 1.25rem;
+                display: flex;
+                justify-content: space-between;
+
+                .contributions {
+                    flex: 1;
+                }
+
+                .repositories {
+                    flex: 1;
+                }
+
+                .language_usages {
+                    flex: 1;
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+
+                    .languages {
+                        border: 1px solid $card-border;
+                        border-radius: 0.75rem;
+                        padding: 0.5rem;
+
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.25rem;
+
+                        p {
+                            font-size: 0.67rem;
+                        }
+
+                        .language {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+            }
         }
     }
 }
