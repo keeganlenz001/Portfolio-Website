@@ -3,6 +3,7 @@
 @use 'sass:list';
 
 $base-color: #f7f7f9;
+$secondary-text-color: color.adjust($base-color, $lightness: -25%);
 // $page-background: #0f0f2f;
 $page-background: #0a0b20;
 
@@ -14,6 +15,9 @@ $card-hover-background: color.adjust($card-background, $lightness: 5%);
 $card-border: color.adjust($card-background, $lightness: 35%); // #4444c5
 
 $tag-background: #0f142f;
+
+$tiny-text: 0.67rem;
+$small-text: 0.75rem;
 
 
 $frameworks: (
@@ -155,18 +159,18 @@ $frameworks: (
                 }
 
                 .subheader {
-                    font-size: 0.75rem;
+                    font-size: $small-text;
 
                     display: flex;
                     align-items: end;
 
                     p {
-                        color: rgba($base-color, 0.75);
+                        color: $secondary-text-color;
                         line-height: 0.8;
                     }
 
                     svg {
-                        fill: rgba($base-color, 0.75);
+                        fill: $secondary-text-color;
                         height: 1rem;
                     }
                 }
@@ -222,7 +226,7 @@ $frameworks: (
                                 background-color: color.adjust($card-background, $lightness: 25%);
                                 border-radius: 0.5rem;
                                 color: color.adjust($card-border, $lightness: 25%);
-                                font-size: 0.67rem;
+                                font-size: $tiny-text;
                                 padding: 0.25rem 0.5rem;
 
                                 width: fit-content;
@@ -237,27 +241,29 @@ $frameworks: (
                         transition: opacity 0.5s 0.1s, max-height 0.2s;
 
                         p {
-                            color: rgba($base-color, 0.8);
-                            font-size: 0.75rem;
+                            color: $secondary-text-color;
+                            font-size: $small-text;
                         }
                     }
 
                     .footer {
-                        color: rgba($base-color, 0.8);
-                        fill: rgba($base-color, 0.8);
+                        color: $secondary-text-color;
+                        fill: $secondary-text-color;
 
                         display: flex;
                         justify-content: space-between;
 
-                        .date, .stars, .language {
+                        .date,
+                        .stars,
+                        .language {
                             display: flex;
 
                             svg {
-                                height: 0.67rem;
+                                height: $tiny-text;
                             }
 
                             p {
-                                font-size: 0.67rem;
+                                font-size: $tiny-text;
                                 line-height: 1;
                             }
                         }
@@ -270,7 +276,7 @@ $frameworks: (
 
                         .divider {
                             width: 1px;
-                            background-color: white;
+                            background-color: $secondary-text-color;
                         }
                     }
                 }
@@ -331,12 +337,12 @@ $frameworks: (
                 justify-content: center;
 
                 p {
-                    color: rgba($base-color, 0.75);
-                    font-size: 0.75rem;
+                    color: $secondary-text-color;
+                    font-size: $small-text;
                 }
 
                 svg {
-                    stroke: rgba($base-color, 0.75);
+                    stroke: $secondary-text-color;
                     height: 1rem;
                 }
             }
@@ -500,7 +506,7 @@ $frameworks: (
 
                     p:nth-child(1),
                     p:nth-child(3) {
-                        color: lightslategray;
+                        color: $secondary-text-color;
                         font-size: 1rem;
                     }
 
@@ -615,7 +621,7 @@ $frameworks: (
                                 border-radius: 4px;
                                 color: $card-border;
                                 filter: brightness(2);
-                                font-size: 0.67rem;
+                                font-size: $tiny-text;
                                 padding: 0.25rem 0.25rem;
                                 text-align: center;
 
@@ -666,6 +672,12 @@ $frameworks: (
                 display: flex;
                 justify-content: space-between;
 
+                h4 {
+                    color: $secondary-text-color;
+                    font-size: $small-text;
+                }
+
+
                 .contributions {
                     flex: 1;
                 }
@@ -683,21 +695,43 @@ $frameworks: (
 
                     .languages {
                         border: 1px solid $card-border;
-                        border-radius: 0.75rem;
+                        border-radius: $small-text;
                         padding: 0.5rem;
 
                         display: flex;
                         flex-direction: column;
-                        gap: 0.25rem;
+                        gap: 0.5rem;
 
                         p {
-                            font-size: 0.67rem;
+                            font-size: $small-text;
                         }
 
                         .language {
+                            line-height: 1;
                             width: 100%;
                             display: flex;
                             justify-content: space-between;
+
+                            .language_name {
+                                display: flex;
+
+                                svg {
+                                    height: $small-text;
+                                    fill: $card-border;
+                                }
+                            }
+                        }
+
+                        .python svg {
+                            filter: brightness(2) hue-rotate(250deg);
+                        }
+
+                        .lua svg {
+                            filter: brightness(1.5) hue-rotate(350deg);
+                        }
+
+                        .javascript svg {
+                            filter: brightness(2) hue-rotate(180deg);
                         }
                     }
                 }

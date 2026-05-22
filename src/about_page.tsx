@@ -344,7 +344,8 @@ function GithubCommits() {
     const renderLanguage = (lang: any, index: number) => (
         <div key={index} className={`language ${lang.class}`}>
             <div className={"language_name"}>
-                <p>{lang.name}</p>
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8 3a5 5 0 100 10A5 5 0 008 3z"></path></g></svg>
+                <p>&#xf09b;&#xf09b;{lang.name}</p>
             </div>
 
             <div className="language_usage">
@@ -355,7 +356,7 @@ function GithubCommits() {
 
     return (
         <div className="card github_commits_wrapper">
-            <h3><i className="fa">&#xf09b; </i>&nbsp; Github Activity</h3>
+            <h3><i className="fa">&#xf09b; </i>&nbsp; Github</h3>
 
             <div className="stats">
                 <div className="contributions">
@@ -363,11 +364,12 @@ function GithubCommits() {
                 </div>
 
                 <div className="repositories">
-
+                    <p>18</p>
+                    <h4>Repositories</h4>
                 </div>
 
                 <div className="language_usages">
-                    <h4>Integrated Languages</h4>
+                    <h4>Top Languages (Integrated)</h4>
 
                     <div className="languages">{languages.map((lang, i) => renderLanguage(lang, i))}</div>
                 </div>
