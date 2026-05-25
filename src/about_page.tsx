@@ -360,11 +360,33 @@ function GithubCommits() {
 
             <div className="stats">
                 <div className="contributions">
+                    <p className="main_count">283</p>
+                    <h4>Repositories</h4>
+                    <div className="sparkline-wrapper">
+                        <svg width="100%" height="100%" viewBox="0 0 190 60" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="wave-fade" x1="0" y1="0" x2="0" y2="1">
+                                    <stop className="fade-top" offset="0%" />
+                                    <stop className="fade-bottom" offset="100%" />
+                                </linearGradient>
+                            </defs>
 
+                            <path
+                                className="sparkline-fill"
+                                d="M 0 40 C 12.5 40, 12.5 48, 25 48 C 42.5 48, 42.5 28, 60 28 C 77.5 28, 77.5 42, 95 42 C 110 42, 110 30, 125 30 C 140 30, 140 42, 155 42 C 172.5 42, 172.5 5, 190 5 L 190 60 L 0 60 Z"
+                            />
+
+                            <path
+                                className="sparkline-stroke"
+                                d="M 0 40 C 12.5 40, 12.5 48, 25 48 C 42.5 48, 42.5 28, 60 28 C 77.5 28, 77.5 42, 95 42 C 110 42, 110 30, 125 30 C 140 30, 140 42, 155 42 C 172.5 42, 172.5 5, 190 5"
+                            />
+                        </svg>
+                    </div>
+                    <p>+12 this month</p>
                 </div>
 
                 <div className="repositories">
-                    <p>18</p>
+                    <p className="main_count">18</p>
                     <h4>Repositories</h4>
                 </div>
 
