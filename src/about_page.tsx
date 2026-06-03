@@ -341,6 +341,13 @@ function GithubCommits() {
         { name: "JavaScript", percentage: 6.40, class: "javascript" }
     ];
 
+    const repositories = [
+        { name: "Portfolio-Website", description: "Personal portfolio website", language: "SCSS", class: "scss"},
+        { name: "CSC-499", description: "My computer science capstone project; 3D-Tetris represented in a 2D plane", language: "Lua", class: "lua"},
+        { name: "YouTube-Higher-Or-Lower", description: "A webiste game where you guess which YouTube video has more views", language: "JavaScript", class: "javascript"},
+        { name: "Health-Check", description: "A Selenium based Python program that automates COVID-19 health checks for CLU", language: "Python", class: "python"}
+    ];
+
     const renderLanguage = (lang: any, index: number) => (
         <div key={index} className={`language ${lang.class}`}>
             <div className={"language_name"}>
@@ -354,12 +361,35 @@ function GithubCommits() {
         </div>
     );
 
+    const renderRepository = (repo: any, index: number) => (
+        <div key={index} className="repository">
+            <div className="left">
+                <div className="repo_icon">
+                    <svg data-component="Octicon" aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>
+                </div>
+
+                <div className="title-description">
+                    <h4>{repo.name}</h4>
+                    <p>{repo.description}</p>
+                </div>
+            </div>
+
+            <div className="right">
+                <div className={`${repo.class}`}>
+                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M8 3a5 5 0 100 10A5 5 0 008 3z"></path></g></svg>
+                </div>
+
+                <p>&#xf09b;&#xf09b;{repo.language}</p>
+            </div>
+        </div>
+    )
+
     return (
         <div className="card github_commits_wrapper">
             <h3><i className="fa">&#xf09b; </i>&nbsp; Github</h3>
 
             <div className="stats">
-                <div className="contributions">
+                <div className="contribution_count">
                     <p className="main_count">283</p>
                     <h4>Contributions</h4>
 
@@ -417,7 +447,7 @@ function GithubCommits() {
                     </div>
                 </div>
 
-                <div className="repositories">
+                <div className="repository_count">
                     <p className="main_count">18</p>
                     <h4>Repositories</h4>
                 </div>
@@ -427,6 +457,12 @@ function GithubCommits() {
 
                     <div className="languages">{languages.map((lang, i) => renderLanguage(lang, i))}</div>
                 </div>
+            </div>
+
+            <div className="repositories">
+                <h4>Featured Repositories</h4>
+
+                <div className="repository_cards">{repositories.map((repo, i) => renderRepository(repo, i))}</div>
             </div>
         </div>
     )

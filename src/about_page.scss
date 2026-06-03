@@ -688,7 +688,7 @@ $frameworks: (
                     line-height: 1;
                 }
 
-                .contributions {
+                .contribution_count {
                     .main_count {
                         filter: brightness(3) hue-rotate(250deg) saturate(4);
                     }
@@ -708,8 +708,8 @@ $frameworks: (
                         }
 
                         svg {
-                            width: 100px;
-
+                            // width: 100px;
+                            width: 50px;
                             overflow: visible;
                         }
 
@@ -739,7 +739,7 @@ $frameworks: (
                     }
                 }
 
-                .repositories {
+                .repository_count {
                     border-left: 1px solid $card-border;
                     border-right: 1px solid $card-border;
                     padding: 0rem 2rem;
@@ -773,11 +773,11 @@ $frameworks: (
                         background-color: $card-hover-background;
                         border: 1px solid $card-border;
                         border-radius: $small-text;
-                        padding: 0.5rem;
+                        padding: 0.25rem 0.5rem;
 
                         display: flex;
                         flex-direction: column;
-                        gap: 0.5rem;
+                        gap: 0.125rem;
 
                         p {
                             font-size: $small-text;
@@ -810,6 +810,103 @@ $frameworks: (
                         .javascript svg {
                             filter: brightness(2) hue-rotate(180deg);
                         }
+                    }
+                }
+            }
+
+            .repositories {
+                margin: 0 1.25rem 0rem 1.25rem;
+
+                display: flex;
+                flex-direction: column;
+                // gap: 0.25rem;
+
+                h4 {
+                    color: $secondary-text-color;
+                    font-size: $small-text;
+                    // line-height: 1;
+                }
+
+                .repository_cards {
+                    border: 1px solid $card-border;
+                    border-radius: 1rem;
+                    
+                    display: flex;
+                    flex-direction: column;
+
+                    .repository {
+                        border-bottom: 1px solid $card-border;
+                        padding: 0.125rem 1rem 0.125rem 0.5rem;
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        .left {
+                            display: flex;
+                            gap: 0.17rem;
+
+                            .repo_icon {
+                                position: relative;
+                                aspect-ratio: 1 / 1;
+                                flex-shrink: 0;
+
+                                svg {
+                                    fill: $base-color;
+                                    padding: 0.33rem;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            .title-description {
+                                display: flex;
+                                flex-direction: column;
+
+                                h4 {
+                                    color: $base-color;
+                                    font-size: $small-text;
+                                }
+
+                                p {
+                                    color: $secondary-text-color;
+                                    font-size: $tiny-text;
+                                }
+                            }
+                        }
+
+                        .right {
+                            display: flex;
+                            align-items: center;
+
+                            svg {
+                                fill: $card-border;
+                                height: $small-text;
+                            }
+
+                            p {
+                                font-size: $tiny-text;
+                            }
+
+                            .scss svg {
+                                fill: #ce5b95;
+                            }
+                            .lua svg {
+                                filter: brightness(1.5) hue-rotate(350deg);
+                            }
+                            .javascript svg {
+                                fill: #f8e060;
+                            }
+                            .python svg {
+                                fill: #3071a7;
+                            }
+                        }
+                    }
+
+                    .repository:last-child{
+                        border: none;
                     }
                 }
             }
