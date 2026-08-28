@@ -181,7 +181,7 @@ $frameworks: (
 
                 flex: 1;
                 display: flex;
-                // align-items: center;
+                align-items: center;
                 gap: 0.5rem;
 
                 .framework {
@@ -662,16 +662,16 @@ $frameworks: (
             border-radius: 1vw;
 
             grid-column: span 6;
-            grid-row: span 5;
+            grid-row: span 7;
 
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 1rem;
 
             .stats {
                 margin: 0rem 1.25rem;
                 display: flex;
-                gap: 1rem;
+                gap: 2rem;
 
                 .main_count {
                     color: $card-border;
@@ -815,15 +815,17 @@ $frameworks: (
             }
 
             .repositories {
-                margin: 0 1.25rem 0rem 1.25rem;
+                margin: 0 1.25rem 1.25rem 1.25rem;
 
                 display: flex;
                 flex-direction: column;
-                // gap: 0.25rem;
+                gap: 0.25rem;
+
+                flex: 1;
 
                 h4 {
                     color: $secondary-text-color;
-                    font-size: $small-text;
+                    font-size: 1rem;
                     // line-height: 1;
                 }
 
@@ -834,12 +836,16 @@ $frameworks: (
                     display: flex;
                     flex-direction: column;
 
+                    flex: 1;
+
                     .repository {
                         border-bottom: 1px solid $card-border;
-                        padding: 0.125rem 1rem 0.125rem 0.5rem;
+                        padding: 0.25rem 1rem 0.25rem 0.5rem;
 
                         display: flex;
                         justify-content: space-between;
+
+                        flex: 1;
 
                         .left {
                             display: flex;

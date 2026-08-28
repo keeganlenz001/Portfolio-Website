@@ -32,8 +32,8 @@ function AboutPage() {
                 <CallToAction></CallToAction>
                 <TypingSpeed></TypingSpeed>
                 <YouTubeMusic></YouTubeMusic>
+                <GithubActivity></GithubActivity>
                 <ProgrammingLanguages></ProgrammingLanguages>
-                <GithubCommits></GithubCommits>
             </div>
         </div>
     )
@@ -261,80 +261,7 @@ function YouTubeMusic() {
     )
 }
 
-function ProgrammingLanguages() {
-    const languages = [
-        { name: "Java", logo: langs.java, level: 3.4, label: "Advanced", class: "advanced" },
-        { name: "TypeScript", logo: langs.typescript, level: 3, label: "Proficient", class: "proficient" },
-        { name: "Lua", logo: langs.lua, level: 3.8, label: "Advanced", class: "advanced" },
-        { name: "Python", logo: langs.python, level: 2.6, label: "Intermediate", class: "intermediate" },
-        { name: "HTML", logo: langs.html, level: 4, label: "Expert", class: "expert" },
-        { name: "CSS", logo: langs.css, level: 4, label: "Expert", class: "expert" },
-        { name: "JSON", logo: langs.json, level: 1.5, label: "Learning", class: "learning" },
-        { name: "SQL", logo: langs.sql, level: 2, label: "Intermediate", class: "intermediate" },
-    ];
-
-    const left = languages.slice(0, 4);
-    const right = languages.slice(4);
-
-    const keyRef = useRef<HTMLDivElement[]>([]);
-
-    useEffect(() => {
-        requestAnimationFrame(() => {
-            const els = keyRef.current.filter(Boolean);
-            const maxWidth = Math.max(...els.map(el => el.offsetWidth));
-            els.forEach(el => (el.style.width = `${maxWidth}px`));
-        });
-    }, []);
-
-    const renderLanguage = (lang: any, index: number) => (
-        <div key={index} className="language">
-            <div className="logo">
-                <img src={`${lang.logo}`}></img>
-            </div>
-
-            <div className="main_section">
-                <h4>{lang.name}</h4>
-
-                <div className="skill_segments">
-                    {[...Array(4)].map((_, i) => {
-                        const isFull = i + 1 <= Math.floor(lang.level);
-                        const isPartial = i < lang.level && i + 1 > lang.level;
-
-                        return (
-                            <div
-                                key={i}
-                                className={`segment ${isFull ? "filled" : isPartial ? "partial" : ""
-                                    }`}
-                                style={
-                                    isPartial
-                                        ? { "--fill": `${(lang.level % 1) * 100}%` } as React.CSSProperties
-                                        : {}
-                                }
-                            />
-                        );
-                    })}
-                </div>
-            </div>
-
-            <div className="skill_key" ref={el => { if (el) keyRef.current[index] = el; }}>
-                <p className={`${lang.class}`}>{lang.label}</p>
-            </div>
-        </div>
-    );
-
-    return (
-        <div className="card languages_wrapper">
-            <h3><i className="fa">&#xf121;</i>&nbsp; Featured Languages</h3>
-
-            <div className="languages">
-                <div className="col">{left.map((lang, i) => renderLanguage(lang, i))}</div>
-                <div className="col">{right.map((lang, i) => renderLanguage(lang, i + left.length))}</div>
-            </div>
-        </div>
-    );
-}
-
-function GithubCommits() {
+function GithubActivity() {
     const languages = [
         { name: "Python", percentage: 22.06, class: "python" },
         { name: "Lua", percentage: 14.23, class: "lua" },
@@ -386,7 +313,7 @@ function GithubCommits() {
 
     return (
         <div className="card github_commits_wrapper">
-            <h3><i className="fa">&#xf09b; </i>&nbsp; Github</h3>
+            <h3><i className="fa">&#xf09b; </i>&nbsp; Github Activity</h3>
 
             <div className="stats">
                 <div className="contribution_count">
@@ -466,6 +393,79 @@ function GithubCommits() {
             </div>
         </div>
     )
+}
+
+function ProgrammingLanguages() {
+        const languages = [
+        { name: "Java", logo: langs.java, level: 3.4, label: "Advanced", class: "advanced" },
+        { name: "TypeScript", logo: langs.typescript, level: 3, label: "Proficient", class: "proficient" },
+        { name: "Lua", logo: langs.lua, level: 3.8, label: "Advanced", class: "advanced" },
+        { name: "Python", logo: langs.python, level: 2.6, label: "Intermediate", class: "intermediate" },
+        { name: "HTML", logo: langs.html, level: 4, label: "Expert", class: "expert" },
+        { name: "CSS", logo: langs.css, level: 4, label: "Expert", class: "expert" },
+        { name: "JSON", logo: langs.json, level: 1.5, label: "Learning", class: "learning" },
+        { name: "SQL", logo: langs.sql, level: 2, label: "Intermediate", class: "intermediate" },
+    ];
+
+    const left = languages.slice(0, 4);
+    const right = languages.slice(4);
+
+    const keyRef = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            const els = keyRef.current.filter(Boolean);
+            const maxWidth = Math.max(...els.map(el => el.offsetWidth));
+            els.forEach(el => (el.style.width = `${maxWidth}px`));
+        });
+    }, []);
+
+    const renderLanguage = (lang: any, index: number) => (
+        <div key={index} className="language">
+            <div className="logo">
+                <img src={`${lang.logo}`}></img>
+            </div>
+
+            <div className="main_section">
+                <h4>{lang.name}</h4>
+
+                <div className="skill_segments">
+                    {[...Array(4)].map((_, i) => {
+                        const isFull = i + 1 <= Math.floor(lang.level);
+                        const isPartial = i < lang.level && i + 1 > lang.level;
+
+                        return (
+                            <div
+                                key={i}
+                                className={`segment ${isFull ? "filled" : isPartial ? "partial" : ""
+                                    }`}
+                                style={
+                                    isPartial
+                                        ? { "--fill": `${(lang.level % 1) * 100}%` } as React.CSSProperties
+                                        : {}
+                                }
+                            />
+                        );
+                    })}
+                </div>
+            </div>
+
+            <div className="skill_key" ref={el => { if (el) keyRef.current[index] = el; }}>
+                <p className={`${lang.class}`}>{lang.label}</p>
+            </div>
+        </div>
+    );
+
+    return (
+        <div className="card languages_wrapper">
+            <h3><i className="fa">&#xf121;</i>&nbsp; Featured Languages</h3>
+
+            <div className="languages">
+                <div className="col">{left.map((lang, i) => renderLanguage(lang, i))}</div>
+                <div className="col">{right.map((lang, i) => renderLanguage(lang, i + left.length))}</div>
+            </div>
+        </div>
+    );
 }
 
 export default AboutPage
