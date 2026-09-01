@@ -355,10 +355,59 @@ $frameworks: (
             grid-column: span 2;
             grid-row: span 2;
 
-            button {
-                background-color: white;
-                border-radius: 1vw;
-                border-style: none;
+            border-radius: 1vw;
+
+            display: flex;
+
+            .call_to_action {
+                padding: 1rem;
+
+                display: flex;
+                flex-grow: 1;
+                justify-content: space-between;
+                align-items: center;
+
+                transition: background-color 0.2s;
+
+                p {
+                    position: relative;
+                }
+
+                p::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $card-border;
+                    
+                    /* Scale width to 0 and set the origin to the left side */
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    
+                    /* Smoothly transition the transform property */
+                    transition: transform 0.2s ease;
+                }
+
+                svg { 
+                    fill: $base-color;
+
+                    transition: transform 0.2s ease;
+                }
+            }
+
+            .call_to_action:hover {
+                background-color: $card-hover-background;
+                cursor: pointer;
+
+                p::after {
+                    transform: scaleX(1);
+                }
+
+                svg{
+                    transform: rotate(90deg);
+                }
             }
         }
 

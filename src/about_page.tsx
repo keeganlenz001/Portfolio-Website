@@ -203,7 +203,10 @@ function Frameworks() {
 function CallToAction() {
     return (
         <div className="card call_to_action_wrapper">
-            <button className="call_to_action">See My Projects</button>
+            <div className="call_to_action">
+                <p>See My Projects</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
+            </div>
         </div>
     )
 }
