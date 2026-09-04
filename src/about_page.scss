@@ -350,16 +350,49 @@ $frameworks: (
         }
 
         .call_to_action_wrapper {
+            position: relative;
+            overflow: hidden;
             border-radius: 1vw;
 
             grid-column: span 2;
             grid-row: span 2;
 
-            border-radius: 1vw;
-
             display: flex;
 
+            // faded dot grid, isolated in its own layer so we can mask/fade it
+            // independently of the button content
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(circle, rgba(215, 205, 255, 0.18) 1px, transparent 1.5px);
+                background-size: 22px 22px;
+                // fades the dots out toward the edges, like the reference
+                mask-image: radial-gradient(ellipse 100% 80% at 30% 25%, black 40%, transparent 85%);
+                -webkit-mask-image: radial-gradient(ellipse 100% 80% at 30% 25%, black 40%, transparent 85%);
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            .wave-decoration {
+                position: absolute;
+                left: 0;
+                bottom: -8%;
+                width: 100%;
+                height: 55%;
+                pointer-events: none;
+                z-index: 0;
+
+                path {
+                    fill: none;
+                    stroke-width: 1;
+                }
+            }
+
             .call_to_action {
+                position: relative;
+                z-index: 1; // sits above the dots/waves
+
                 padding: 1rem;
 
                 display: flex;
@@ -381,18 +414,13 @@ $frameworks: (
                     bottom: 0;
                     left: 0;
                     background-color: $card-border;
-                    
-                    /* Scale width to 0 and set the origin to the left side */
                     transform: scaleX(0);
                     transform-origin: left;
-                    
-                    /* Smoothly transition the transform property */
                     transition: transform 0.2s ease;
                 }
 
-                svg { 
+                svg {
                     fill: $base-color;
-
                     transition: transform 0.2s ease;
                 }
             }
@@ -405,7 +433,7 @@ $frameworks: (
                     transform: scaleX(1);
                 }
 
-                svg{
+                svg {
                     transform: rotate(90deg);
                 }
             }

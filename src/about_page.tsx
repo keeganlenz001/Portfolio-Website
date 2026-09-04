@@ -3,7 +3,7 @@ import './about_page.scss'
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Circle, useMap, useMapEvents } from "react-leaflet";
 import type { LatLngTuple } from "leaflet";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useId } from 'react';
 
 import { songs } from "./assets/about_page/songs/songs";
 
@@ -201,12 +201,38 @@ function Frameworks() {
 }
 
 function CallToAction() {
+    const gradientId = useId();
+
     return (
         <div className="card call_to_action_wrapper">
             <div className="call_to_action">
                 <p>See My Projects</p>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                    <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+                </svg>
             </div>
+
+            <svg
+                className="wave-decoration"
+                viewBox="0 0 400 100"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <defs>
+                    <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#8b5cf6" />
+                        <stop offset="100%" stopColor="#38bdf8" />
+                    </linearGradient>
+                </defs>
+                <g stroke={`url(#${gradientId})`} fill="none">
+                    <path d="M-20,70 C60,30 120,90 200,55 C280,20 340,80 420,45" strokeOpacity={0.15} />
+                    <path d="M-20,75 C60,38 120,95 200,60 C280,28 340,85 420,50" strokeOpacity={0.22} />
+                    <path d="M-20,80 C60,45 120,100 200,65 C280,35 340,90 420,55" strokeOpacity={0.3} />
+                    <path d="M-20,85 C60,52 120,105 200,70 C280,42 340,95 420,60" strokeOpacity={0.4} />
+                    <path d="M-20,90 C60,60 120,110 200,75 C280,50 340,100 420,65" strokeOpacity={0.55} />
+                    <path d="M-20,95 C60,68 120,115 200,80 C280,58 340,105 420,70" strokeOpacity={0.75} />
+                </g>
+            </svg>
         </div>
     )
 }
